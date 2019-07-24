@@ -11,10 +11,8 @@
 
 
 
-  
 
-
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html class="theme-next pisces" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -78,7 +76,7 @@
     lazyload: false,
     pangu: false,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -388,6 +386,12 @@
           
 
   
+     <div class="comments" id="comments">
+        <div id="gitment-container"></div>
+     </div>
+
+  
+
 
 
 
@@ -416,7 +420,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   
   <p class="site-author-name" itemprop="name">Sophon Griffin</p>
-  <div class="site-description motion-element" itemprop="description"></div>
+  <div class="site-description motion-element" itemprop="description">eleven-dimension's blog</div>
 </div>
 
 
@@ -545,9 +549,6 @@
 
 
 
-  
-  
-
 
 
 
@@ -559,18 +560,10 @@
   
   <script src="/lib/jquery/index.js?v=3.4.1"></script>
 
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
 
 
 
   <script src="/js/utils.js?v=7.2.0"></script>
-
-  <script src="/js/motion.js?v=7.2.0"></script>
 
 
 
@@ -610,6 +603,22 @@
 
 
 
+  
+    <script type="text/javascript">
+    (function() {
+        // 匿名函数，防止污染全局变量
+        var utterances = document.createElement('script');
+        utterances.type = 'text/javascript';
+        utterances.async = true;
+        utterances.setAttribute('issue-term','0')
+        utterances.setAttribute('theme','')
+        utterances.setAttribute('repo','eleven-dimension.github.io')
+        utterances.crossorigin = 'anonymous';
+        utterances.src = 'https://utteranc.es/client.js';
+        // content 是要插入评论的地方
+        document.getElementById('gitment-container').appendChild(utterances);
+    })();
+</script>
   
 
 
