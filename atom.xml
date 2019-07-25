@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-25T02:25:41.068Z</updated>
+  <updated>2019-07-25T05:34:52.535Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>更新日志</title>
+    <link href="http://yoursite.com/2019/07/25/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/"/>
+    <id>http://yoursite.com/2019/07/25/更新日志/</id>
+    <published>2019-07-25T05:11:47.000Z</published>
+    <updated>2019-07-25T05:34:52.535Z</updated>
+    
+    <content type="html"><![CDATA[<p>2019-07-25 &ensp;第一篇博客 &ensp;显示摘要 &ensp;版权信息 &ensp;实时聊天<br>2019-07-24 &ensp;Latex &ensp;gitalk文章评论 &ensp;字数统计 &ensp;背景侧边栏<br>2019-07-23 &ensp;环境 主框架</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;2019-07-25 &amp;ensp;第一篇博客 &amp;ensp;显示摘要 &amp;ensp;版权信息 &amp;ensp;实时聊天&lt;br&gt;2019-07-24 &amp;ensp;Latex &amp;ensp;gitalk文章评论 &amp;ensp;字数统计 &amp;ensp;背景侧边栏&lt;br&gt;2019-07-23 &amp;
+      
+    
+    </summary>
+    
+      <category term="关于本站" scheme="http://yoursite.com/categories/%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99/"/>
+    
+    
+      <category term="关于本站" scheme="http://yoursite.com/tags/%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello, world</title>
