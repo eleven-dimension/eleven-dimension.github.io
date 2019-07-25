@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[KMP]]></title>
+    <url>%2F2019%2F07%2F25%2FKMP%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[更新日志]]></title>
     <url>%2F2019%2F07%2F25%2F%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97%2F</url>
     <content type="text"><![CDATA[2019-07-25 &ensp;第一篇博客 &ensp;显示摘要 &ensp;版权信息 &ensp;实时聊天2019-07-24 &ensp;Latex &ensp;gitalk文章评论 &ensp;字数统计 &ensp;背景侧边栏2019-07-23 &ensp;环境 主框架]]></content>
