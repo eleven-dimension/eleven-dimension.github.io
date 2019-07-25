@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-24T10:03:28.119Z</updated>
+  <updated>2019-07-25T01:15:13.915Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,25 +17,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>你好</title>
+    <title>Hello, world</title>
     <link href="http://yoursite.com/2019/07/23/%E4%BD%A0%E5%A5%BD/"/>
     <id>http://yoursite.com/2019/07/23/你好/</id>
     <published>2019-07-23T08:30:11.000Z</published>
-    <updated>2019-07-24T10:03:28.119Z</updated>
+    <updated>2019-07-25T01:15:13.915Z</updated>
     
-    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a^&#123;n&#125;</span><br></pre></td></tr></table></figure><p>$\alpha$</p><p>$$\alpha$$</p><p>$$f_{x}$$</p><p>$$\sum_{i=1}^{n}i=\frac{n(n+1)}{2}$$</p><p>$$<br>\cos 2\theta &amp; = &amp; \cos^2 \theta - \sin^2 \theta \</p><p>&amp; = &amp; 2 \cos^2 \theta - 1.<br>$$</p><p>$$lim_{1\to+\infty}P(|\frac{1}{n}\sum_i^nX_i-\mu|&lt;\epsilon)=1, i=1,…,n$$  </p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"sdfsdfsd"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>逻辑上的佛蛇妃为防范措施为i访问过覅i给外国人价格vi飞过我就撇号v都是vi给地方四个频道大方不大方比赛结果是vsv反倒比大方不大方【吧</p>]]></content>
+    <content type="html"><![CDATA[<a id="more"></a><p>&emsp;&emsp;第一次正经地写博客，有点不知道如何才能好好地写完这篇开场白。虽然完全可以用自认为还不错的词句，冠冕堂皇地组成一篇交差式的文字，满溢着壮志豪情，但总觉得这样做令人心生厌恶。<del>尽管以前为了应付任务做过无数次。</del> 作为一个对前端一无所知的菜鸡，第一次在github搞项目，第一次搭博客，花费近两天的时间与未知战斗，才终于让这个新生儿降临于世。<br>&emsp;&emsp;于是，不由得想起程序员在接触一个新的编译环境时，第一件事就是各种语言的Hello, world.那不妨就把这篇博客当作这个婴儿说的第一句话吧。慢慢地，敲进编辑器的代码会越来越复杂，婴儿说出的话语也会从无意义的音节变成有意义的日常对话，变成思想积淀后的智慧流露。总有一天，那些程序员会精熟地敲打着键盘，一日千行不在话下，婴儿也会经历百态人生，成为能够独当一面的社会人。而当他回顾他曾说过的话语，记起当时的情景，回想起语言背后思想的转变和升华，希望他能够很有把握地相信，时间的推移已经对他产生了有价值的影响，他全身上下的变化无愧于“成长”二字。<br>&emsp;&emsp;既然如此，那就用心出发吧。<br>&emsp;&emsp;Hello, world.</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;p&gt;&amp;emsp;&amp;emsp;第一次正经地写博客，有点不知道如何才能好好地写完这篇开场白。虽然完全可以用自认为还不错的词句，冠冕堂皇地组成一篇交差式的文字，满溢着壮志豪情，但总觉得这样做令人心生厌恶。&lt;del&gt;尽管以前为了应付任务做过无数次。
       
     
     </summary>
     
     
-      <category term="语" scheme="http://yoursite.com/tags/%E8%AF%AD/"/>
+      <category term="关于" scheme="http://yoursite.com/tags/%E5%85%B3%E4%BA%8E/"/>
     
   </entry>
   
