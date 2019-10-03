@@ -112,13 +112,11 @@ daovoice('update');
 <meta property="og:site_name" content="eleven-dimension">
 <meta property="og:description" content="C++11不定参数template&amp;emsp;&amp;emsp;如下函数可以求出任意个参数中的最大值。（顿时有了用$\;python\;$时才有的快感）。其中两个参数的重载函数是必要的，因为不这样的话会递归到参数只有零个从而报错。&amp;emsp;&amp;emsp;适合于求三四个数的最大值，不用一堆$\;max\;$的嵌套，而且递归也不会很大地影响效率。1234567891011121314151617181920">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-02T14:04:49.505Z">
+<meta property="og:updated_time" content="2019-10-03T02:13:32.338Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++11不定长template参数">
 <meta name="twitter:description" content="C++11不定参数template&amp;emsp;&amp;emsp;如下函数可以求出任意个参数中的最大值。（顿时有了用$\;python\;$时才有的快感）。其中两个参数的重载函数是必要的，因为不这样的话会递归到参数只有零个从而报错。&amp;emsp;&amp;emsp;适合于求三四个数的最大值，不用一堆$\;max\;$的嵌套，而且递归也不会很大地影响效率。1234567891011121314151617181920">
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="eleven-dimension" type="application/atom+xml">
@@ -404,13 +402,23 @@ daovoice('update');
                 
               
 
-              <time title="创建时间：2019-10-02 21:44:57 / 修改时间：22:04:49" itemprop="dateCreated datePublished" datetime="2019-10-02T21:44:57+08:00">2019-10-02</time>
+              <time title="创建时间：2019-10-02 21:44:57" itemprop="dateCreated datePublished" datetime="2019-10-02T21:44:57+08:00">2019-10-02</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-03 10:13:32" itemprop="dateModified" datetime="2019-10-03T10:13:32+08:00">2019-10-03</time>
+              </span>
             
           
 
@@ -452,7 +460,7 @@ daovoice('update');
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">606</span>
+              <span title="本文字数">1k</span>
             </span>
           
 
@@ -464,7 +472,7 @@ daovoice('update');
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">2 分钟</span>
+              <span title="阅读时长">4 分钟</span>
             </span>
           
 
@@ -484,6 +492,7 @@ daovoice('update');
 
       
         <h1 id="C-11不定参数template"><a href="#C-11不定参数template" class="headerlink" title="C++11不定参数template"></a>C++11不定参数template</h1><p>&emsp;&emsp;如下函数可以求出任意个参数中的最大值。（顿时有了用$\;python\;$时才有的快感）。其中两个参数的重载函数是必要的，因为不这样的话会递归到参数只有零个从而报错。<br>&emsp;&emsp;适合于求三四个数的最大值，不用一堆$\;max\;$的嵌套，而且递归也不会很大地影响效率。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> T <span class="title">Max</span><span class="params">(T x, T y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x &gt; y ? x : y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Types&gt;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> T <span class="title">Max</span><span class="params">(T fir, Types... ano)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T ans = fir;</span><br><span class="line">	T tmp = Max(ano...);</span><br><span class="line">	<span class="keyword">if</span> (ans &lt; tmp)</span><br><span class="line">	&#123;</span><br><span class="line">		ans = tmp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; Max(<span class="number">1</span>, <span class="number">3</span>, <span class="number">-1</span>, <span class="number">203</span>, <span class="number">934</span>, <span class="number">324</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;压行版：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> T <span class="title">Max</span><span class="params">(<span class="keyword">const</span> T&amp; x, <span class="keyword">const</span> T&amp; y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x &gt; y ? x : y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Types&gt;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> T <span class="title">Max</span><span class="params">(<span class="keyword">const</span> T&amp; fir, <span class="keyword">const</span> Types&amp;... ano)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T t = Max(ano...);</span><br><span class="line">	<span class="keyword">return</span> fir &gt; t ? fir : t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; Max(<span class="number">1</span>, <span class="number">300</span>, <span class="number">-1</span>, <span class="number">203</span>, <span class="number">134</span>, <span class="number">324</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;<del>大约一年前与xhl讨论到不定数量max函数曾遇到过，今天偶然得解。</del></p>
 
       
@@ -871,7 +880,7 @@ daovoice('update');
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">1:38</span>
+    <span title="站点阅读时长">1:39</span>
   
 </div>
 
