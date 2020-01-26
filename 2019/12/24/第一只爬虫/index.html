@@ -104,18 +104,18 @@ daovoice('update');
 
 
 
-  <meta name="description" content="挖坑防忘，爬到网易云音乐的歌单里的所有音乐```pyimport requestsfrom bs4 import BeautifulSoupimport lxmlimport urllib.request headers = {    ‘Referer’:’http://music.163.com/‘,    ‘Host’:’music.163.com’,    ‘User-Agent’:’Moz">
+  <meta name="description" content="挖坑防忘，爬到网易云音乐的歌单里的所有音乐123456789101112131415161718192021222324252627282930313233343536373839404142import requestsfrom bs4 import BeautifulSoupimport lxmlimport urllib.requestheaders = &amp;#123;    &apos;Referer">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第一只爬虫">
 <meta property="og:url" content="https://eleven-dimension.github.io/2019/12/24/第一只爬虫/index.html">
 <meta property="og:site_name" content="eleven-dimension">
-<meta property="og:description" content="挖坑防忘，爬到网易云音乐的歌单里的所有音乐```pyimport requestsfrom bs4 import BeautifulSoupimport lxmlimport urllib.request headers = {    ‘Referer’:’http://music.163.com/‘,    ‘Host’:’music.163.com’,    ‘User-Agent’:’Moz">
+<meta property="og:description" content="挖坑防忘，爬到网易云音乐的歌单里的所有音乐123456789101112131415161718192021222324252627282930313233343536373839404142import requestsfrom bs4 import BeautifulSoupimport lxmlimport urllib.requestheaders = &amp;#123;    &apos;Referer">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-24T07:54:54.376Z">
+<meta property="og:updated_time" content="2020-01-26T13:38:12.177Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一只爬虫">
-<meta name="twitter:description" content="挖坑防忘，爬到网易云音乐的歌单里的所有音乐```pyimport requestsfrom bs4 import BeautifulSoupimport lxmlimport urllib.request headers = {    ‘Referer’:’http://music.163.com/‘,    ‘Host’:’music.163.com’,    ‘User-Agent’:’Moz">
+<meta name="twitter:description" content="挖坑防忘，爬到网易云音乐的歌单里的所有音乐123456789101112131415161718192021222324252627282930313233343536373839404142import requestsfrom bs4 import BeautifulSoupimport lxmlimport urllib.requestheaders = &amp;#123;    &apos;Referer">
 
 
 
@@ -402,13 +402,23 @@ daovoice('update');
                 
               
 
-              <time title="创建时间：2019-12-24 15:51:33 / 修改时间：15:54:54" itemprop="dateCreated datePublished" datetime="2019-12-24T15:51:33+08:00">2019-12-24</time>
+              <time title="创建时间：2019-12-24 15:51:33" itemprop="dateCreated datePublished" datetime="2019-12-24T15:51:33+08:00">2019-12-24</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-01-26 21:38:12" itemprop="dateModified" datetime="2020-01-26T21:38:12+08:00">2020-01-26</time>
+              </span>
             
           
 
@@ -466,21 +476,7 @@ daovoice('update');
       
 
       
-        <p>挖坑防忘，爬到网易云音乐的歌单里的所有音乐<br>```py<br>import requests<br>from bs4 import BeautifulSoup<br>import lxml<br>import urllib.request</p>
-<p>headers = {<br>    ‘Referer’:’<a href="http://music.163.com/" target="_blank" rel="noopener">http://music.163.com/</a>‘,<br>    ‘Host’:’music.163.com’,<br>    ‘User-Agent’:’Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36’,<br>    ‘Accept’: ‘text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,<em>/</em>;q=0.8’<br>    }</p>
-<p>song_list_url = ‘<a href="http://music.163.com/playlist?id=2980142883" target="_blank" rel="noopener">http://music.163.com/playlist?id=2980142883</a>‘</p>
-<p>stage = requests.session()<br>response = stage.get(song_list_url, headers = headers).content</p>
-<p>sp = BeautifulSoup(response, ‘lxml’)<br>tot = sp.find(‘ul’,{‘class’:’f-hide’})</p>
-<p>song_list = tot.find_all(‘a’)<br>songs = []</p>
-<p>for music in song_list:<br>    pair = []</p>
-<pre><code>song_url = &#39;http://music.163.com/song/media/outer/url&#39; + music[&#39;href&#39;][5:] + &#39;.mp3&#39;
-song_name = music.text
-
-pair.append(song_name)
-pair.append(song_url)
-songs.append(pair)
-</code></pre><p>for item in songs:<br>    url = item[1]<br>    name = item[0]<br>    try:<br>        print(‘Now downloading: ‘, name)<br>        urllib.request.urlretrieve(url, ‘E:/PySpiderMusic/%s.mp3’ % name)<br>        print(‘Successful!’)<br>    except:<br>        print(‘Failed!’)</p>
-<p>···</p>
+        <p>挖坑防忘，爬到网易云音乐的歌单里的所有音乐<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> lxml</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'Referer'</span>:<span class="string">'http://music.163.com/'</span>,</span><br><span class="line">    <span class="string">'Host'</span>:<span class="string">'music.163.com'</span>,</span><br><span class="line">    <span class="string">'User-Agent'</span>:<span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'</span>,</span><br><span class="line">    <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">song_list_url = <span class="string">'http://music.163.com/playlist?id=2980142883'</span></span><br><span class="line"></span><br><span class="line">stage = requests.session()</span><br><span class="line">response = stage.get(song_list_url, headers = headers).content</span><br><span class="line"></span><br><span class="line">sp = BeautifulSoup(response, <span class="string">'lxml'</span>)</span><br><span class="line">tot = sp.find(<span class="string">'ul'</span>,&#123;<span class="string">'class'</span>:<span class="string">'f-hide'</span>&#125;)</span><br><span class="line"></span><br><span class="line">song_list = tot.find_all(<span class="string">'a'</span>)</span><br><span class="line">songs = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> music <span class="keyword">in</span> song_list:</span><br><span class="line">    pair = []</span><br><span class="line"></span><br><span class="line">    song_url = <span class="string">'http://music.163.com/song/media/outer/url'</span> + music[<span class="string">'href'</span>][<span class="number">5</span>:] + <span class="string">'.mp3'</span></span><br><span class="line">    song_name = music.text</span><br><span class="line">    </span><br><span class="line">    pair.append(song_name)</span><br><span class="line">    pair.append(song_url)</span><br><span class="line">    songs.append(pair)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> songs:</span><br><span class="line">    url = item[<span class="number">1</span>]</span><br><span class="line">    name = item[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        print(<span class="string">'Now downloading: '</span>, name)</span><br><span class="line">        urllib.request.urlretrieve(url, <span class="string">'E:/PySpiderMusic/%s.mp3'</span> % name)</span><br><span class="line">        print(<span class="string">'Successful!'</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">'Failed!'</span>)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -848,7 +844,7 @@ songs.append(pair)
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
