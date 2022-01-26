@@ -16,20 +16,21 @@
   <meta name="author" content="Sophon">
   <meta name="keywords" content="">
   
-    <meta name="description" content="为什么说操作数是神？1while (true) cout &lt;&lt; &quot;czsnb&quot;;  $$\large{Czs NB \cdot czsnb}$$">
+    <meta name="description" content="题意简述给定$;n;$个数，其中有某个数的出现次数大于$;\lfloor \frac{n}{2} \rfloor ;$，求这个数。 算法分析把这些数分成两个阵营，一个由每一个众数（即所求）组成，另一个由其他所有非众数组成。由题意知前一个阵营人数大于后一个。考虑维护一个候选众数$;candidate;$以及它出现的次数$;count;$，初始候选众数任意，出现次数为$;0;$。接下来扫描这$;n;$">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Czs nb!">
-<meta property="og:url" content="http://example.com/post/59d544d.html">
+<meta property="og:title" content="leetcode 169 多数元素">
+<meta property="og:url" content="http://example.com/post/be4ef6ff.html">
 <meta property="og:site_name" content="Sophon">
-<meta property="og:description" content="为什么说操作数是神？1while (true) cout &lt;&lt; &quot;czsnb&quot;;  $$\large{Czs NB \cdot czsnb}$$">
+<meta property="og:description" content="题意简述给定$;n;$个数，其中有某个数的出现次数大于$;\lfloor \frac{n}{2} \rfloor ;$，求这个数。 算法分析把这些数分成两个阵营，一个由每一个众数（即所求）组成，另一个由其他所有非众数组成。由题意知前一个阵营人数大于后一个。考虑维护一个候选众数$;candidate;$以及它出现的次数$;count;$，初始候选众数任意，出现次数为$;0;$。接下来扫描这$;n;$">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-01-25T07:28:42.567Z">
-<meta property="article:modified_time" content="2022-01-25T14:33:09.887Z">
+<meta property="article:published_time" content="2022-01-26T13:57:58.887Z">
+<meta property="article:modified_time" content="2022-01-26T14:28:39.150Z">
 <meta property="article:author" content="Sophon">
+<meta property="article:tag" content="摩尔投票">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>Czs nb! - Sophon</title>
+  <title>leetcode 169 多数元素 - Sophon</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -175,7 +176,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Czs nb!">
+            <span class="h2" id="subtitle" title="leetcode 169 多数元素">
               
             </span>
 
@@ -185,8 +186,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-01-25 15:28" pubdate>
-        2022年1月25日 下午
+      <time datetime="2022-01-26 21:57" pubdate>
+        2022年1月26日 晚上
       </time>
     </span>
   
@@ -196,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      79 字
+      661 字
     </span>
   
 
@@ -205,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      6 分钟
     </span>
   
 
@@ -234,18 +235,32 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Czs nb!</h1>
+            <h1 style="display: none">leetcode 169 多数元素</h1>
             
             <div class="markdown-body">
-              <h1 id="为什么说操作数是神？"><a href="#为什么说操作数是神？" class="headerlink" title="为什么说操作数是神？"></a>为什么说操作数是神？</h1><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) cout &lt;&lt; <span class="hljs-string">&quot;czsnb&quot;</span>;<br></code></pre></td></tr></table></figure>
-
-<p>$$<br>\large{Czs NB \cdot czsnb}<br>$$</p>
-
+              <h1 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h1><p>给定$;n;$个数，其中有某个数的出现次数<strong>大于</strong>$;\lfloor \frac{n}{2} \rfloor ;$，求这个数。</p>
+<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>把这些数分成两个阵营，一个由每一个众数（即所求）组成，另一个由其他所有非众数组成。由题意知前一个阵营人数大于后一个。考虑维护一个候选众数$;candidate;$以及它出现的次数$;count;$，初始候选众数任意，出现次数为$;0;$。接下来扫描这$;n;$个数，如果被扫到的数$;x;$是当前候选众数，$;count;$加一，否则减一，如果$;count;$被减到$;0;$以下，将候选众数更新为$;x;$。最终的候选众数即为所求。</p>
+<p>可以将整个过程想象为打擂台，和擂主（当前候选众数）相同的站到台上来，不同的干掉台上一个人，同归于尽。最坏的情况是非众数阵营内部没有发生同归于尽，同归于尽只发生在两个阵营之间，但即便如此众数阵营仍会因为数量多获胜。</p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">majorityElement</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> candidate = <span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> num : nums) &#123;<br>            <span class="hljs-keyword">if</span> (num == candidate)<br>                ++count;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (--count &lt; <span class="hljs-number">0</span>) &#123;<br>                candidate = num;<br>                count = <span class="hljs-number">1</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> candidate;<br>    &#125;<br>&#125;;<br><br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Solution/">Solution</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/">摩尔投票</a>
+                    
+                  </div>
                 
               </div>
               
@@ -260,15 +275,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/post/be4ef6ff.html">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">leetcode 169 多数元素</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/post/59d544d.html">
+                        <span class="hidden-mobile">Czs nb!</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
