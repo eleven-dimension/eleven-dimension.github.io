@@ -16,21 +16,21 @@
   <meta name="author" content="Sophon">
   <meta name="keywords" content="">
   
-    <meta name="description" content="题意简述定义因子只有$2$或$3$或$5$的数为丑数，求第$n$个丑数。 算法分析法一 最小堆每次取出堆顶$x$，插入$2x,3x,5x$。set或priority_queue。复杂度$nlogn$。 法二 动态规划每个丑数，乘以$2$乘以$3$乘以$5$都能得到$3$个更大的丑数。反过来看每个丑数，都是由之前的某个丑数乘以$2$乘以$3$乘以$5$得到。为了得到$f[i]$是由哪一个推得，考虑维">
+    <meta name="description" content="T1 元素计数for for，水题莫忘暴力 T4 基于陈述统计最多好人数题意简述好人说真话，坏人不确定。给出$statements[i][j]$表示$i$号人对$j$号人的好坏评价，$0$坏$1$好。求好人最多有几个。 算法分析由于总人数$n&lt;&#x3D;15$，直接二进制枚举所有人的好坏情况，判断有无冲突即可。 代码实现1234567891011121314151617181920212223242">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode 264 丑数 II">
-<meta property="og:url" content="http://example.com/post/2f692029.html">
+<meta property="og:title" content="leetcode 第277场周赛">
+<meta property="og:url" content="http://example.com/post/0.html">
 <meta property="og:site_name" content="Sophon">
-<meta property="og:description" content="题意简述定义因子只有$2$或$3$或$5$的数为丑数，求第$n$个丑数。 算法分析法一 最小堆每次取出堆顶$x$，插入$2x,3x,5x$。set或priority_queue。复杂度$nlogn$。 法二 动态规划每个丑数，乘以$2$乘以$3$乘以$5$都能得到$3$个更大的丑数。反过来看每个丑数，都是由之前的某个丑数乘以$2$乘以$3$乘以$5$得到。为了得到$f[i]$是由哪一个推得，考虑维">
+<meta property="og:description" content="T1 元素计数for for，水题莫忘暴力 T4 基于陈述统计最多好人数题意简述好人说真话，坏人不确定。给出$statements[i][j]$表示$i$号人对$j$号人的好坏评价，$0$坏$1$好。求好人最多有几个。 算法分析由于总人数$n&lt;&#x3D;15$，直接二进制枚举所有人的好坏情况，判断有无冲突即可。 代码实现1234567891011121314151617181920212223242">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-01-27T07:06:02.533Z">
-<meta property="article:modified_time" content="2022-01-27T09:04:26.695Z">
+<meta property="article:published_time" content="2022-01-27T11:57:44.063Z">
+<meta property="article:modified_time" content="2022-01-27T12:16:15.416Z">
 <meta property="article:author" content="Sophon">
-<meta property="article:tag" content="动态规划">
+<meta property="article:tag" content="力扣周赛">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>leetcode 264 丑数 II - Sophon</title>
+  <title>leetcode 第277场周赛 - Sophon</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -176,7 +176,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="leetcode 264 丑数 II">
+            <span class="h2" id="subtitle" title="leetcode 第277场周赛">
               
             </span>
 
@@ -186,8 +186,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-01-27 15:06" pubdate>
-        2022年1月27日 下午
+      <time datetime="2022-01-27 19:57" pubdate>
+        2022年1月27日 晚上
       </time>
     </span>
   
@@ -197,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      995 字
+      858 字
     </span>
   
 
@@ -206,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9 分钟
+      8 分钟
     </span>
   
 
@@ -235,16 +235,13 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">leetcode 264 丑数 II</h1>
+            <h1 style="display: none">leetcode 第277场周赛</h1>
             
             <div class="markdown-body">
-              <h1 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h1><p>定义因子只有$2$或$3$或$5$的数为丑数，求第$n$个丑数。</p>
-<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><h2 id="法一-最小堆"><a href="#法一-最小堆" class="headerlink" title="法一 最小堆"></a>法一 最小堆</h2><p>每次取出堆顶$x$，插入$2x,3x,5x$。<code>set</code>或<code>priority_queue</code>。复杂度$nlogn$。</p>
-<h2 id="法二-动态规划"><a href="#法二-动态规划" class="headerlink" title="法二 动态规划"></a>法二 动态规划</h2><p>每个丑数，乘以$2$乘以$3$乘以$5$都能得到$3$个更大的丑数。反过来看每个丑数，都是由<strong>之前的某个丑数</strong>乘以$2$乘以$3$乘以$5$得到。为了得到$f[i]$是由哪一个推得，考虑维护$p_2p_3p_5$三个指针，分别指向当前乘以$2$乘以$3$乘以$5$之后可能更新最大丑数（即$f[i-1]$）的<strong>之前的某个丑数</strong>下标。</p>
-<p>定义$f[i]$为第$i$个丑数，指针$p_x(x=2,3,5)$为<br>$$<br>    min\{j\} \quad s.t. \ f[j] \times x &gt; f[i - 1]<br>$$<br>每次求第$i$个丑数时，取<br>$$<br>    min\left\{<br>        f[p_x] \times x<br>    \right\}<br>$$<br>之后比较$f[i]$与$f[p_x] \times x(x=2,3,5)$，将对应的指针加一。</p>
-<p>举例来看，第一个丑数$1$，有资格乘以$2$乘以$3$乘以$5$，取出$2$作为第二个丑数。之后，由于$1$已经乘以过$2$，$1$只有乘以$3$乘以$5$的资格（可能性）了，对应的操作就是$p_2$加一。</p>
-<p>从另一个角度看，为什么这样选择$p_x$就一定是能更新最大丑数的最小下标呢？这是因为只有当$f[i]=f[p_x] \times x$时才会移动$p_x$。也就是说，对于任意一个小于$p_x$的下标$p$，$f[p] \times x$一定被考虑过了（已经出现在$f$里面了），自然也就无法超过$f[i - 1]$。</p>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">nthUglyNumber</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>        <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-number">1700</span>, <span class="hljs-number">0</span>)</span></span>;<br>        <span class="hljs-keyword">int</span> p2 = <span class="hljs-number">1</span>, p3 = <span class="hljs-number">1</span>, p5 = <span class="hljs-number">1</span>;<br>        f[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;<br>            f[i] = <span class="hljs-built_in">min</span>(&#123;f[p2] * <span class="hljs-number">2</span>, f[p3] * <span class="hljs-number">3</span>, f[p5] * <span class="hljs-number">5</span>&#125;);<br>            <span class="hljs-keyword">if</span> (f[i] == f[p2] * <span class="hljs-number">2</span>) p2++;<br>            <span class="hljs-keyword">if</span> (f[i] == f[p3] * <span class="hljs-number">3</span>) p3++;<br>            <span class="hljs-keyword">if</span> (f[i] == f[p5] * <span class="hljs-number">5</span>) p5++;<br>        &#125;<br>        <span class="hljs-keyword">return</span> f[n];<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+              <h1 id="T1-元素计数"><a href="#T1-元素计数" class="headerlink" title="T1 元素计数"></a>T1 元素计数</h1><p>for for，水题莫忘暴力</p>
+<h1 id="T4-基于陈述统计最多好人数"><a href="#T4-基于陈述统计最多好人数" class="headerlink" title="T4 基于陈述统计最多好人数"></a>T4 基于陈述统计最多好人数</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>好人说真话，坏人不确定。给出$statements[i][j]$表示$i$号人对$j$号人的好坏评价，$0$坏$1$好。求好人最多有几个。</p>
+<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p>由于总人数$n&lt;=15$，直接二进制枚举所有人的好坏情况，判断有无冲突即可。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maximumGood</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; statements)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> n = statements.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> mask = <span class="hljs-number">1</span>; mask &lt; (<span class="hljs-number">1</span> &lt;&lt; n); ++mask) &#123;<br>            <span class="hljs-keyword">bool</span> check = [&amp;]() &#123;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) &#123;<br>                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; ++j) &#123;<br>                        <span class="hljs-keyword">if</span> (i == j) &#123;<br>                            <span class="hljs-keyword">continue</span>;<br>                        &#125;<br>                        <span class="hljs-keyword">if</span> (statements[i][j] == <span class="hljs-number">0</span>) &#123;<br>                            <span class="hljs-keyword">if</span> ((mask &amp; (<span class="hljs-number">1</span> &lt;&lt; i)) &amp;&amp; (mask &amp; (<span class="hljs-number">1</span> &lt;&lt; j))) &#123;<br>                                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>                            &#125;<br>                        &#125;<br>                        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (statements[i][j] == <span class="hljs-number">1</span>) &#123;<br>                            <span class="hljs-keyword">if</span> ((mask &amp; (<span class="hljs-number">1</span> &lt;&lt; i)) &amp;&amp; !(mask &amp; (<span class="hljs-number">1</span> &lt;&lt; j))) &#123;<br>                                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>                            &#125;<br>                        &#125;<br>                    &#125;<br>                &#125;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            &#125;();<br>            <span class="hljs-keyword">if</span> (check) &#123;<br>                ans = <span class="hljs-built_in">max</span>(ans, __builtin_popcount(mask));<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -261,7 +258,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+                      <a class="hover-with-bg" href="/tags/%E5%8A%9B%E6%89%A3%E5%91%A8%E8%B5%9B/">力扣周赛</a>
                     
                   </div>
                 
@@ -278,18 +275,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/post/0.html">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">leetcode 第277场周赛</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/post/be4ef6ff.html">
-                        <span class="hidden-mobile">leetcode 169 多数元素</span>
+                      <a href="/post/2f692029.html">
+                        <span class="hidden-mobile">leetcode 264 丑数 II</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>leetcode 第277场周赛</title>
+    <link href="/post/0.html"/>
+    <url>/post/0.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="T1-元素计数"><a href="#T1-元素计数" class="headerlink" title="T1 元素计数"></a>T1 元素计数</h1><p>for for，水题莫忘暴力</p><h1 id="T4-基于陈述统计最多好人数"><a href="#T4-基于陈述统计最多好人数" class="headerlink" title="T4 基于陈述统计最多好人数"></a>T4 基于陈述统计最多好人数</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>好人说真话，坏人不确定。给出$statements[i][j]$表示$i$号人对$j$号人的好坏评价，$0$坏$1$好。求好人最多有几个。</p><h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p>由于总人数$n&lt;=15$，直接二进制枚举所有人的好坏情况，判断有无冲突即可。</p><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maximumGood</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; statements)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> n = statements.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> mask = <span class="hljs-number">1</span>; mask &lt; (<span class="hljs-number">1</span> &lt;&lt; n); ++mask) &#123;<br>            <span class="hljs-keyword">bool</span> check = [&amp;]() &#123;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) &#123;<br>                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; ++j) &#123;<br>                        <span class="hljs-keyword">if</span> (i == j) &#123;<br>                            <span class="hljs-keyword">continue</span>;<br>                        &#125;<br>                        <span class="hljs-keyword">if</span> (statements[i][j] == <span class="hljs-number">0</span>) &#123;<br>                            <span class="hljs-keyword">if</span> ((mask &amp; (<span class="hljs-number">1</span> &lt;&lt; i)) &amp;&amp; (mask &amp; (<span class="hljs-number">1</span> &lt;&lt; j))) &#123;<br>                                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>                            &#125;<br>                        &#125;<br>                        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (statements[i][j] == <span class="hljs-number">1</span>) &#123;<br>                            <span class="hljs-keyword">if</span> ((mask &amp; (<span class="hljs-number">1</span> &lt;&lt; i)) &amp;&amp; !(mask &amp; (<span class="hljs-number">1</span> &lt;&lt; j))) &#123;<br>                                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>                            &#125;<br>                        &#125;<br>                    &#125;<br>                &#125;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            &#125;();<br>            <span class="hljs-keyword">if</span> (check) &#123;<br>                ans = <span class="hljs-built_in">max</span>(ans, __builtin_popcount(mask));<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Solution</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>力扣周赛</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode 264 丑数 II</title>
     <link href="/post/2f692029.html"/>
     <url>/post/2f692029.html</url>
