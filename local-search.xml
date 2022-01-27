@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>leetcode 264 丑数 II</title>
+    <link href="/post/2f692029.html"/>
+    <url>/post/2f692029.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h1><p>定义因子只有$2$或$3$或$5$的数为丑数，求第$n$个丑数。</p><h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><h2 id="法一-最小堆"><a href="#法一-最小堆" class="headerlink" title="法一 最小堆"></a>法一 最小堆</h2><p>每次取出堆顶$x$，插入$2x,3x,5x$。<code>set</code>或<code>priority_queue</code>。复杂度$nlogn$。</p><h2 id="法二-动态规划"><a href="#法二-动态规划" class="headerlink" title="法二 动态规划"></a>法二 动态规划</h2><p>每个丑数，乘以$2$乘以$3$乘以$5$都能得到$3$个更大的丑数。反过来看每个丑数，都是由<strong>之前的某个丑数</strong>乘以$2$乘以$3$乘以$5$得到。为了得到$f[i]$是由哪一个推得，考虑维护$p_2p_3p_5$三个指针，分别指向当前乘以$2$乘以$3$乘以$5$之后可能更新最大丑数（即$f[i-1]$）的<strong>之前的某个丑数</strong>下标。</p><p>定义$f[i]$为第$i$个丑数，指针$p_x(x=2,3,5)$为<br>$$<br>    min{j} \quad s.t. ; f[j] \times x &gt; f[i - 1]<br>$$<br>每次求第$i$个丑数时，取<br>$$<br>    min{f[p_x] \times x}<br>$$<br>之后比较$f[i]$与$f[p_x] \times x(x=2,3,5)$，将对应的指针加一。</p><p>举例来看，第一个丑数$1$，有资格乘以$2$乘以$3$乘以$5$，取出$2$作为第二个丑数。之后，由于$1$已经乘以过$2$，$1$只有乘以$3$乘以$5$的资格（可能性）了，对应的操作就是$p_2$加一。</p><p>从另一个角度看，为什么这样选择$p_x$就一定是能更新最大丑数的最小下标呢？这是因为只有当$f[i]=f[p_x] \times x$时才会移动$p_x$。也就是说，对于任意一个小于$p_x$的下标$p$，$f[p] \times x$一定被考虑过了（已经出现在$f$里面了），自然也就无法超过$f[i - 1]$。</p><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">nthUglyNumber</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>        <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-number">1700</span>, <span class="hljs-number">0</span>)</span></span>;<br>        <span class="hljs-keyword">int</span> p2 = <span class="hljs-number">1</span>, p3 = <span class="hljs-number">1</span>, p5 = <span class="hljs-number">1</span>;<br>        f[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;<br>            f[i] = <span class="hljs-built_in">min</span>(&#123;f[p2] * <span class="hljs-number">2</span>, f[p3] * <span class="hljs-number">3</span>, f[p5] * <span class="hljs-number">5</span>&#125;);<br>            <span class="hljs-keyword">if</span> (f[i] == f[p2] * <span class="hljs-number">2</span>) p2++;<br>            <span class="hljs-keyword">if</span> (f[i] == f[p3] * <span class="hljs-number">3</span>) p3++;<br>            <span class="hljs-keyword">if</span> (f[i] == f[p5] * <span class="hljs-number">5</span>) p5++;<br>        &#125;<br>        <span class="hljs-keyword">return</span> f[n];<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Solution</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>动态规划</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode 169 多数元素</title>
     <link href="/post/be4ef6ff.html"/>
     <url>/post/be4ef6ff.html</url>
