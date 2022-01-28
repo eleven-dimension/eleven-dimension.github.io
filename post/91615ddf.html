@@ -16,21 +16,21 @@
   <meta name="author" content="Sophon">
   <meta name="keywords" content="">
   
-    <meta name="description" content="T1 元素计数for for，水题莫忘暴力 T4 基于陈述统计最多好人数题意简述好人说真话，坏人不确定。给出$statements[i][j]$表示$i$号人对$j$号人的好坏评价，$0$坏$1$好。求好人最多有几个。 算法分析由于总人数$n&lt;&#x3D;15$，直接二进制枚举所有人的好坏情况，判断有无冲突即可。 代码实现1234567891011121314151617181920212223242">
+    <meta name="description" content="题意简述给出一些角色，每个角色有$ATK$和$DEF$属性，若存在另一个角色，它的两个属性值都严格大于自己的两个属性值，称自己为弱角色。求出这些角色中弱角色个数。 算法分析如果属性仅有一个，直接排序或记录最大值，比较就可以得到答案。考虑对其中一个属性$ATK$排序，按降序遍历每一个角色，并记录已遍历过的角色的$DEF$最大值$maxD$，如果当前角色的$DEF$值小于$maxD$，答案加一。同时还">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode 第277场周赛">
-<meta property="og:url" content="http://example.com/post/45b83178.html">
+<meta property="og:title" content="leetcode 1996 游戏中弱角色的数量">
+<meta property="og:url" content="http://example.com/post/91615ddf.html">
 <meta property="og:site_name" content="Sophon">
-<meta property="og:description" content="T1 元素计数for for，水题莫忘暴力 T4 基于陈述统计最多好人数题意简述好人说真话，坏人不确定。给出$statements[i][j]$表示$i$号人对$j$号人的好坏评价，$0$坏$1$好。求好人最多有几个。 算法分析由于总人数$n&lt;&#x3D;15$，直接二进制枚举所有人的好坏情况，判断有无冲突即可。 代码实现1234567891011121314151617181920212223242">
+<meta property="og:description" content="题意简述给出一些角色，每个角色有$ATK$和$DEF$属性，若存在另一个角色，它的两个属性值都严格大于自己的两个属性值，称自己为弱角色。求出这些角色中弱角色个数。 算法分析如果属性仅有一个，直接排序或记录最大值，比较就可以得到答案。考虑对其中一个属性$ATK$排序，按降序遍历每一个角色，并记录已遍历过的角色的$DEF$最大值$maxD$，如果当前角色的$DEF$值小于$maxD$，答案加一。同时还">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-01-27T11:57:44.063Z">
-<meta property="article:modified_time" content="2022-01-27T12:17:34.555Z">
+<meta property="article:published_time" content="2022-01-28T05:56:49.354Z">
+<meta property="article:modified_time" content="2022-01-28T06:27:38.491Z">
 <meta property="article:author" content="Sophon">
-<meta property="article:tag" content="力扣周赛">
+<meta property="article:tag" content="排序">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>leetcode 第277场周赛 - Sophon</title>
+  <title>leetcode 1996 游戏中弱角色的数量 - Sophon</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -176,7 +176,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="leetcode 第277场周赛">
+            <span class="h2" id="subtitle" title="leetcode 1996 游戏中弱角色的数量">
               
             </span>
 
@@ -186,8 +186,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-01-27 19:57" pubdate>
-        2022年1月27日 晚上
+      <time datetime="2022-01-28 13:56" pubdate>
+        2022年1月28日 下午
       </time>
     </span>
   
@@ -197,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      858 字
+      747 字
     </span>
   
 
@@ -206,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8 分钟
+      7 分钟
     </span>
   
 
@@ -235,13 +235,14 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">leetcode 第277场周赛</h1>
+            <h1 style="display: none">leetcode 1996 游戏中弱角色的数量</h1>
             
             <div class="markdown-body">
-              <h1 id="T1-元素计数"><a href="#T1-元素计数" class="headerlink" title="T1 元素计数"></a>T1 元素计数</h1><p>for for，水题莫忘暴力</p>
-<h1 id="T4-基于陈述统计最多好人数"><a href="#T4-基于陈述统计最多好人数" class="headerlink" title="T4 基于陈述统计最多好人数"></a>T4 基于陈述统计最多好人数</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>好人说真话，坏人不确定。给出$statements[i][j]$表示$i$号人对$j$号人的好坏评价，$0$坏$1$好。求好人最多有几个。</p>
-<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p>由于总人数$n&lt;=15$，直接二进制枚举所有人的好坏情况，判断有无冲突即可。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maximumGood</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; statements)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> n = statements.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> mask = <span class="hljs-number">1</span>; mask &lt; (<span class="hljs-number">1</span> &lt;&lt; n); ++mask) &#123;<br>            <span class="hljs-keyword">bool</span> check = [&amp;]() &#123;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) &#123;<br>                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; ++j) &#123;<br>                        <span class="hljs-keyword">if</span> (i == j) &#123;<br>                            <span class="hljs-keyword">continue</span>;<br>                        &#125;<br>                        <span class="hljs-keyword">if</span> (statements[i][j] == <span class="hljs-number">0</span>) &#123;<br>                            <span class="hljs-keyword">if</span> ((mask &amp; (<span class="hljs-number">1</span> &lt;&lt; i)) &amp;&amp; (mask &amp; (<span class="hljs-number">1</span> &lt;&lt; j))) &#123;<br>                                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>                            &#125;<br>                        &#125;<br>                        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (statements[i][j] == <span class="hljs-number">1</span>) &#123;<br>                            <span class="hljs-keyword">if</span> ((mask &amp; (<span class="hljs-number">1</span> &lt;&lt; i)) &amp;&amp; !(mask &amp; (<span class="hljs-number">1</span> &lt;&lt; j))) &#123;<br>                                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>                            &#125;<br>                        &#125;<br>                    &#125;<br>                &#125;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            &#125;();<br>            <span class="hljs-keyword">if</span> (check) &#123;<br>                ans = <span class="hljs-built_in">max</span>(ans, __builtin_popcount(mask));<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+              <h1 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h1><p>给出一些角色，每个角色有$ATK$和$DEF$属性，若存在另一个角色，它的两个属性值都严格大于自己的两个属性值，称自己为<strong>弱角色</strong>。求出这些角色中<strong>弱角色</strong>个数。</p>
+<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>如果属性仅有一个，直接排序或记录最大值，比较就可以得到答案。考虑对其中一个属性$ATK$排序，按降序遍历每一个角色，并记录已遍历过的角色的$DEF$最大值$maxD$，如果当前角色的$DEF$值小于$maxD$，答案加一。同时还需考虑$ATK$属性相同的那些角色，如果没有顺序地遍历这些角色，可能会出现$DEF$较小的角色被误认为弱角色的情况。这种情况当$maxD$来自于前面某一个$ATK$与当前角色$ATK$相同的角色时出现。所以对于$ATK$相同的角色，应该按照$DEF$升序排序。</p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">numberOfWeakCharacters</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; properties)</span> </span>&#123;<br>        <span class="hljs-built_in">sort</span>(properties.<span class="hljs-built_in">begin</span>(), properties.<span class="hljs-built_in">end</span>(), [](vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; a, vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; b) &#123;<br>            <span class="hljs-keyword">return</span> a[<span class="hljs-number">0</span>] == b[<span class="hljs-number">0</span>] ? a[<span class="hljs-number">1</span>] &lt; b[<span class="hljs-number">1</span>] : a[<span class="hljs-number">0</span>] &gt; b[<span class="hljs-number">0</span>];<br>        &#125;);<br>        <span class="hljs-keyword">int</span> maxD = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> player : properties) &#123;<br>            <span class="hljs-keyword">if</span> (player[<span class="hljs-number">1</span>] &lt; maxD) ans++;<br>            <span class="hljs-keyword">else</span> maxD = player[<span class="hljs-number">1</span>];<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h1 id="另解"><a href="#另解" class="headerlink" title="另解"></a>另解</h1><p>二维偏序，线段树，挖坑</p>
+
             </div>
             <hr>
             <div>
@@ -258,7 +259,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%8A%9B%E6%89%A3%E5%91%A8%E8%B5%9B/">力扣周赛</a>
+                      <a class="hover-with-bg" href="/tags/%E6%8E%92%E5%BA%8F/">排序</a>
                     
                   </div>
                 
@@ -275,9 +276,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/post/91615ddf.html">
+                      <a href="/post/e631459b.html">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">leetcode 1996 游戏中弱角色的数量</span>
+                        <span class="hidden-mobile">leetcode 1314 矩阵区域和</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -285,8 +286,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/post/2f692029.html">
-                        <span class="hidden-mobile">leetcode 264 丑数 II</span>
+                      <a href="/post/45b83178.html">
+                        <span class="hidden-mobile">leetcode 第277场周赛</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

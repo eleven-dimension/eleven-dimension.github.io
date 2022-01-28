@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>leetcode 1314 矩阵区域和</title>
+    <link href="/post/e631459b.html"/>
+    <url>/post/e631459b.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h1><p>给出一个矩阵，求以每个位置为中心，边长为$2k+1$的正方形区域内，覆盖到的原矩阵元素的总和。</p><h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>二维前缀和，前缀和矩阵留出第$0$行和第$0$列，注意正方形左上出界时，下标$(x, y)$应取为$(max(x, 0), max(y, 0))$。</p><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-built_in">matrixBlockSum</span>(vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; mat, <span class="hljs-keyword">int</span> k) &#123;<br>        <span class="hljs-keyword">int</span> n = mat.<span class="hljs-built_in">size</span>(), m = mat[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>();<br>        vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-built_in">sum</span>(n + <span class="hljs-number">1</span>, vector&lt;<span class="hljs-keyword">int</span>&gt;(m + <span class="hljs-number">1</span>, <span class="hljs-number">0</span>));<br>        vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-built_in">ans</span>(n, vector&lt;<span class="hljs-keyword">int</span>&gt;(m, <span class="hljs-number">0</span>));<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j++) &#123;<br>                sum[i][j] = <br>                    sum[i - <span class="hljs-number">1</span>][j] + <br>                    sum[i][j - <span class="hljs-number">1</span>] - <br>                    sum[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>] + <br>                    mat[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>];<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">auto</span> get_sum = [&amp;](<span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j, <span class="hljs-keyword">int</span> k) &#123;<br>            <span class="hljs-keyword">return</span> <br>                sum[<span class="hljs-built_in">min</span>(i + k, n)][<span class="hljs-built_in">min</span>(j + k, m)] - <br>                sum[<span class="hljs-built_in">max</span>(<span class="hljs-number">0</span>, i - k - <span class="hljs-number">1</span>)][<span class="hljs-built_in">min</span>(j + k, m)] - <br>                sum[<span class="hljs-built_in">min</span>(i + k, n)][<span class="hljs-built_in">max</span>(j - k - <span class="hljs-number">1</span>, <span class="hljs-number">0</span>)] + <br>                sum[<span class="hljs-built_in">max</span>(<span class="hljs-number">0</span>, i - k - <span class="hljs-number">1</span>)][<span class="hljs-built_in">max</span>(<span class="hljs-number">0</span>, j - k - <span class="hljs-number">1</span>)]<br>            ;<br>        &#125;;<br>        <br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; m; j++) &#123;<br>                ans[i][j] = <span class="hljs-built_in">get_sum</span>(i + <span class="hljs-number">1</span>, j + <span class="hljs-number">1</span>, k);<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Solution</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>二维前缀和</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>leetcode 1996 游戏中弱角色的数量</title>
+    <link href="/post/91615ddf.html"/>
+    <url>/post/91615ddf.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h1><p>给出一些角色，每个角色有$ATK$和$DEF$属性，若存在另一个角色，它的两个属性值都严格大于自己的两个属性值，称自己为<strong>弱角色</strong>。求出这些角色中<strong>弱角色</strong>个数。</p><h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>如果属性仅有一个，直接排序或记录最大值，比较就可以得到答案。考虑对其中一个属性$ATK$排序，按降序遍历每一个角色，并记录已遍历过的角色的$DEF$最大值$maxD$，如果当前角色的$DEF$值小于$maxD$，答案加一。同时还需考虑$ATK$属性相同的那些角色，如果没有顺序地遍历这些角色，可能会出现$DEF$较小的角色被误认为弱角色的情况。这种情况当$maxD$来自于前面某一个$ATK$与当前角色$ATK$相同的角色时出现。所以对于$ATK$相同的角色，应该按照$DEF$升序排序。</p><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">numberOfWeakCharacters</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; properties)</span> </span>&#123;<br>        <span class="hljs-built_in">sort</span>(properties.<span class="hljs-built_in">begin</span>(), properties.<span class="hljs-built_in">end</span>(), [](vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; a, vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; b) &#123;<br>            <span class="hljs-keyword">return</span> a[<span class="hljs-number">0</span>] == b[<span class="hljs-number">0</span>] ? a[<span class="hljs-number">1</span>] &lt; b[<span class="hljs-number">1</span>] : a[<span class="hljs-number">0</span>] &gt; b[<span class="hljs-number">0</span>];<br>        &#125;);<br>        <span class="hljs-keyword">int</span> maxD = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> player : properties) &#123;<br>            <span class="hljs-keyword">if</span> (player[<span class="hljs-number">1</span>] &lt; maxD) ans++;<br>            <span class="hljs-keyword">else</span> maxD = player[<span class="hljs-number">1</span>];<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><h1 id="另解"><a href="#另解" class="headerlink" title="另解"></a>另解</h1><p>二维偏序，线段树，挖坑</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Solution</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>排序</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode 第277场周赛</title>
     <link href="/post/45b83178.html"/>
     <url>/post/45b83178.html</url>
