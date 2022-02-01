@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>leetcode 第278场周赛</title>
+    <link href="/post/b4b36af5.html"/>
+    <url>/post/b4b36af5.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="挖坑"><a href="#挖坑" class="headerlink" title="挖坑"></a>挖坑</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>Solution</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>力扣周赛</tag>
+      
+      <tag>搜索</tag>
+      
+      <tag>字符哈希</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode 1763 最长的美好子字符串</title>
     <link href="/post/3abd74a8.html"/>
     <url>/post/3abd74a8.html</url>
@@ -176,7 +205,11 @@
     
     <tags>
       
+      <tag>位运算</tag>
+      
       <tag>力扣周赛</tag>
+      
+      <tag>枚举</tag>
       
     </tags>
     
