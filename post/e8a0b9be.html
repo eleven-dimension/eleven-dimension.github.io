@@ -16,32 +16,22 @@
   <meta name="author" content="Sophon">
   <meta name="keywords" content="">
   
-    <meta name="description" content="炮二平五 &amp;nbsp; 马２进３ 马二进三 &amp;nbsp; 炮２平１ 炮八平七 &amp;nbsp; 车１平２                   如图形成中炮对右三步虎的局面。       马八进九 &amp;nbsp; 马８进７ 车一平二 &amp;nbsp; 车９平８ 车九进一 &amp;nbsp; 卒７进１ 车二进四 &amp;nbsp; 炮８平９ 车二平四 &amp;nbsp; 士６进５ 兵九进一 &amp;nbsp; 车２进４ 马九进八 &amp;">
+    <meta name="description" content="题意简述给你一个字符串 $s$ 和一个整数 $k$ ，找出 $s$ 中的最长子串，要求该子串中的每一字符出现次数都不少于 $k$ 。返回这一子串的长度。 算法分析法一 分治如果某个字符在整个字符串中的出现次数不足 $k$ ，那么任意一个包含这个字符的子串都不可能满足条件。这就好像整个字符串被这个字符分割成了几个子段，满足条件的子串只可能在子段中取。反之，如果该字符串中所有字符出现次数都不少于 $k">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2022年1月31日除夕与父象棋对局">
-<meta property="og:url" content="http://example.com/post/cbf25262.html">
+<meta property="og:title" content="leetcode 395 至少有 K 个重复字符的最长子串">
+<meta property="og:url" content="http://example.com/post/e8a0b9be.html">
 <meta property="og:site_name" content="Sophon">
-<meta property="og:description" content="炮二平五 &amp;nbsp; 马２进３ 马二进三 &amp;nbsp; 炮２平１ 炮八平七 &amp;nbsp; 车１平２                   如图形成中炮对右三步虎的局面。       马八进九 &amp;nbsp; 马８进７ 车一平二 &amp;nbsp; 车９平８ 车九进一 &amp;nbsp; 卒７进１ 车二进四 &amp;nbsp; 炮８平９ 车二平四 &amp;nbsp; 士６进５ 兵九进一 &amp;nbsp; 车２进４ 马九进八 &amp;">
+<meta property="og:description" content="题意简述给你一个字符串 $s$ 和一个整数 $k$ ，找出 $s$ 中的最长子串，要求该子串中的每一字符出现次数都不少于 $k$ 。返回这一子串的长度。 算法分析法一 分治如果某个字符在整个字符串中的出现次数不足 $k$ ，那么任意一个包含这个字符的子串都不可能满足条件。这就好像整个字符串被这个字符分割成了几个子段，满足条件的子串只可能在子段中取。反之，如果该字符串中所有字符出现次数都不少于 $k">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/01/31/J8G5OB7AYTgMHQv.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/31/yaJMC5kwpUvVFqL.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/31/NCx9j23DnAXlLBf.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/31/dNz8SeWPGYVlDfp.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/31/uXpedZgWClBEMKo.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/31/6rzMXA5gJBv8KED.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/31/hUJ59NjtCznl46K.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/31/85T3AHDqaybhKuo.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/31/8DG7skF2fxQHEMv.png">
-<meta property="og:image" content="https://s2.loli.net/2022/01/31/8jeS7xhQTr15Ylq.png">
-<meta property="article:published_time" content="2022-01-31T13:31:40.147Z">
-<meta property="article:modified_time" content="2022-01-31T14:55:50.603Z">
+<meta property="article:published_time" content="2022-02-01T07:49:19.119Z">
+<meta property="article:modified_time" content="2022-02-01T10:46:58.196Z">
 <meta property="article:author" content="Sophon">
-<meta property="article:tag" content="Chinese Chess">
+<meta property="article:tag" content="分治">
+<meta property="article:tag" content="滑动窗口">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.loli.net/2022/01/31/J8G5OB7AYTgMHQv.png">
   
   
-  <title>2022年1月31日除夕与父象棋对局 - Sophon</title>
+  <title>leetcode 395 至少有 K 个重复字符的最长子串 - Sophon</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -187,7 +177,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="2022年1月31日除夕与父象棋对局">
+            <span class="h2" id="subtitle" title="leetcode 395 至少有 K 个重复字符的最长子串">
               
             </span>
 
@@ -197,8 +187,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-01-31 21:31" pubdate>
-        2022年1月31日 晚上
+      <time datetime="2022-02-01 15:49" pubdate>
+        2022年2月1日 下午
       </time>
     </span>
   
@@ -208,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      921 字
+      975 字
     </span>
   
 
@@ -217,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8 分钟
+      9 分钟
     </span>
   
 
@@ -246,155 +236,15 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">2022年1月31日除夕与父象棋对局</h1>
+            <h1 style="display: none">leetcode 395 至少有 K 个重复字符的最长子串</h1>
             
             <div class="markdown-body">
-              <ol>
-<li>炮二平五 &nbsp; 马２进３</li>
-<li>马二进三 &nbsp; 炮２平１</li>
-<li>炮八平七 &nbsp; 车１平２</li>
-</ol>
- <div align="center">      
- <img src="https://s2.loli.net/2022/01/31/J8G5OB7AYTgMHQv.png" srcset="/img/loading.gif" lazyload width="50%" height="50%">  
- </div> 
-  如图形成中炮对右三步虎的局面。  
-  
-<ol start="4">
-<li>马八进九 &nbsp; 马８进７</li>
-<li>车一平二 &nbsp; 车９平８</li>
-<li>车九进一 &nbsp; 卒７进１</li>
-<li>车二进四 &nbsp; 炮８平９</li>
-<li>车二平四 &nbsp; 士６进５</li>
-<li>兵九进一 &nbsp; 车２进４</li>
-<li>马九进八 &nbsp; 马７进６ ?</li>
-</ol>
- <div align="center">      
- <img src="https://s2.loli.net/2022/01/31/yaJMC5kwpUvVFqL.png" srcset="/img/loading.gif" lazyload width="50%" height="50%">  
- </div>  
- 如图，马７进６错着，以下红炮七平八，黑若炮9平6反打红车，兑车之后，红再马八进六踩双，黑失子；黑若车2平3，红则炮五平七，车3进2，车四进一，黑丢马。
+              <h1 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h1><p>给你一个字符串 $s$ 和一个整数 $k$ ，找出 $s$ 中的最长子串，要求该子串中的每一字符出现次数都不少于 $k$ 。返回这一子串的长度。</p>
+<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><h2 id="法一-分治"><a href="#法一-分治" class="headerlink" title="法一 分治"></a>法一 分治</h2><p>如果某个字符在整个字符串中的出现次数不足 $k$ ，那么任意一个包含这个字符的子串都不可能满足条件。这就好像整个字符串被这个字符分割成了几个子段，满足条件的子串只可能在子段中取。反之，如果该字符串中所有字符出现次数都不少于 $k$ ，那么该串即符合条件，可以去更新最值。考虑使用分支递归。</p>
+<h2 id="法二-滑动窗口"><a href="#法二-滑动窗口" class="headerlink" title="法二 滑动窗口"></a>法二 滑动窗口</h2><p>挖坑</p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><h2 id="法一-分治-1"><a href="#法一-分治-1" class="headerlink" title="法一 分治"></a>法一 分治</h2><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">const</span> string&amp; s, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> k)</span> </span>&#123;<br>        <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">cnt</span><span class="hljs-params">(<span class="hljs-number">26</span>, <span class="hljs-number">0</span>)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = l; i &lt;= r; i++) &#123;<br>            cnt[s[i] - <span class="hljs-string">&#x27;a&#x27;</span>]++;<br>        &#125;<br><br>        <span class="hljs-keyword">char</span> split = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">26</span>; i++) &#123;<br>            <span class="hljs-keyword">if</span> (cnt[i] &gt; <span class="hljs-number">0</span> &amp;&amp; cnt[i] &lt; k) &#123;<br>                split = i + <span class="hljs-string">&#x27;a&#x27;</span>;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (split == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span> r - l + <span class="hljs-number">1</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">int</span> i = l;<br>        <span class="hljs-keyword">int</span> ret = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (i &lt;= r) &#123;<br>            <span class="hljs-keyword">while</span> (i &lt;= r &amp;&amp; s[i] == split) &#123;<br>                i++;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (i &gt; r) &#123;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>            <span class="hljs-keyword">int</span> start = i;<br>            <span class="hljs-keyword">while</span> (i &lt;= r &amp;&amp; s[i] != split) &#123;<br>                i++;<br>            &#125;<br><br>            <span class="hljs-keyword">int</span> length = <span class="hljs-built_in">dfs</span>(s, start, i - <span class="hljs-number">1</span>, k);<br>            ret = <span class="hljs-built_in">max</span>(ret, length);<br>        &#125;<br>        <span class="hljs-keyword">return</span> ret;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">longestSubstring</span><span class="hljs-params">(string s, <span class="hljs-keyword">int</span> k)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> n = s.<span class="hljs-built_in">length</span>();<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">dfs</span>(s, <span class="hljs-number">0</span>, n - <span class="hljs-number">1</span>, k);<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
-<ol start="11">
-<li><p>炮七进四 &nbsp;象７进５<br>红不察，打兵瞄象。</p>
-</li>
-<li><p>车九平六 &nbsp;炮９平６<br>红车瞄准象眼。</p>
-</li>
-<li><p>车六进七 &nbsp;马３退１<br>黑退马正着。</p>
-</li>
-<li><p>车四平五 &nbsp;马６进７</p>
-</li>
-<li><p>车五进二 &nbsp;炮６退１？</p>
-</li>
-</ol>
- <div align="center">      
- <img src="https://s2.loli.net/2022/01/31/NCx9j23DnAXlLBf.png" srcset="/img/loading.gif" lazyload width="50%" height="50%">  
- </div>  
- 
-<p> 如图，黑退炮打车，不佳。正着车2进1，车六平九，黑再退炮打车，将红车赶入绝地。</p>
-<ol start="16">
-<li>车六退四 &nbsp;马７退６</li>
-<li>车五退一？&emsp;车２平５</li>
-</ol>
- <div align="center">      
- <img src="https://s2.loli.net/2022/01/31/dNz8SeWPGYVlDfp.png" srcset="/img/loading.gif" lazyload width="50%" height="50%">  
- </div>  
-
-<p> 如图，红进五路车邀兑，不佳，失先。宜进六路车邀兑，保持中路攻势。</p>
-<ol start="18">
-<li>炮五进三 炮６平７</li>
-<li>马八进六 车８进３</li>
-<li>马六进七 将５平６</li>
-<li>车六平四 车８平３</li>
-<li>车四进一 将６平５</li>
-</ol>
- <div align="center">      
- <img src="https://s2.loli.net/2022/01/31/uXpedZgWClBEMKo.png" srcset="/img/loading.gif" lazyload width="50%" height="50%">  
- </div>  
-
-<p> 如图，黑将归中，不佳，不如垫炮，之后红若兑马，黑有撑士打死红车的好手，红若不兑马，马死。</p>
-<ol start="23">
-<li>车四平三 马１进３</li>
-<li>车三进三 车３平５</li>
-<li>炮五平二 马３进４</li>
-<li>炮二进四 士５进６</li>
-<li>车三进一 将５进１</li>
-<li>车三平六？ 马４进５  </li>
-</ol>
- <div align="center">      
- <img src="https://s2.loli.net/2022/01/31/6rzMXA5gJBv8KED.png" srcset="/img/loading.gif" lazyload width="50%" height="50%">  
- </div>   
- 如图，红破士，但丢中兵，得不偿失，不如退车保护中兵。而且车炮同在底线，为以后黑炮串打埋下了隐患。 
-
-<ol start="29">
-<li>马三进五 车５进３</li>
-<li>相三进五 炮１进３？  </li>
-</ol>
- <div align="center">      
- <img src="https://s2.loli.net/2022/01/31/hUJ59NjtCznl46K.png" srcset="/img/loading.gif" lazyload width="50%" height="50%">  
- </div> 
- 如图，第30回合，黑可退炮串打得子，黑不察。  
-
-
-<ol start="31">
-<li><p>车六退五 卒１进１</p>
-</li>
-<li><p>炮二退五 炮１进４</p>
-</li>
-<li><p>炮二平五 将５平６</p>
-</li>
-<li><p>炮五平四 将６平５</p>
-</li>
-<li><p>车六退二 车５平３</p>
-</li>
-<li><p>车六平九 炮１平２</p>
-</li>
-<li><p>车九进三 车３平５</p>
-</li>
-<li><p>车九退三 车５平９</p>
-</li>
-<li><p>车九平八 炮２平１</p>
-</li>
-<li><p>炮四平九 车９平５? </p>
-<div align="center">      
-<img src="https://s2.loli.net/2022/01/31/85T3AHDqaybhKuo.png" srcset="/img/loading.gif" lazyload width="50%" height="50%">  
-</div>    
-如图，黑送杀，红车将军，再炮沉底，杀。红亦未察。黑应飞开中象。</li>
-<li><p>炮九进五? 将５平６</p>
-</li>
-<li><p>车八退二 炮１退３</p>
-</li>
-<li><p>车八进八 士６退５</p>
-</li>
-<li><p>炮九退一 将６退１</p>
-</li>
-<li><p>炮九平五 车５平６</p>
-</li>
-<li><p>仕四进五 车６退５</p>
-</li>
-<li><p>车八退五 炮１退５</p>
-</li>
-<li><p>炮五平八 车６进４</p>
-</li>
-<li><p>炮八进一 象３进１</p>
-</li>
-<li><p>炮八平九 炮１平５？</p>
-<div align="center">    
-<img src="https://s2.loli.net/2022/01/31/8DG7skF2fxQHEMv.png" srcset="/img/loading.gif" lazyload width="50%" height="50%">  
-</div> 
-黑炮平中，谬矣。平7守线可无虞。以下黑失炮。  </li>
-<li><p>车八进六 将６进１</p>
-</li>
-<li><p>炮九退一 将６进１</p>
-</li>
-<li><p>车八平四 炮５平６</p>
-</li>
-<li><p>车四平二 *   </p>
-</li>
-</ol>
- <div align="center">    
-    <img src="https://s2.loli.net/2022/01/31/8jeS7xhQTr15Ylq.png" srcset="/img/loading.gif" lazyload width="50%" height="50%">  
- </div>
-
-<p> 至此，黑失炮。红车炮带士，黑车双象无士，虽为高难残局，但红必胜。</p>
+<h2 id="法二-滑动窗口-1"><a href="#法二-滑动窗口-1" class="headerlink" title="法二 滑动窗口"></a>法二 滑动窗口</h2><p>挖坑</p>
 
             </div>
             <hr>
@@ -404,7 +254,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Chinese-Chess/">Chinese Chess</a>
+                      <a class="hover-with-bg" href="/categories/Solution/">Solution</a>
                     
                   </div>
                 
@@ -412,7 +262,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Chinese-Chess/">Chinese Chess</a>
+                      <a class="hover-with-bg" href="/tags/%E5%88%86%E6%B2%BB/">分治</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">滑动窗口</a>
                     
                   </div>
                 
@@ -429,18 +281,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/post/e8a0b9be.html">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">leetcode 395 至少有 K 个重复字符的最长子串</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/post/df3523b.html">
-                        <span class="hidden-mobile">托福红书 wordlist 23</span>
+                      <a href="/post/cbf25262.html">
+                        <span class="hidden-mobile">2022年1月31日除夕与父象棋对局</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -585,6 +431,48 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 
