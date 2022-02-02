@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>leetcode 414 第三大的数</title>
+    <link href="/post/63603c43.html"/>
+    <url>/post/63603c43.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h1><p>求出一个数组第三个大的数，相同的数只算一个，如果没有第三大的数，输出最大数。</p><h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>维护当前最大值，次大值，第三大值。扫描每个数，更新它们。注意，最终判断第三大值是否为负无穷。</p><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">thirdMax</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt; &amp;nums)</span> </span>&#123;<br>        <span class="hljs-keyword">long</span> a = LONG_MIN, b = LONG_MIN, c = LONG_MIN;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">long</span> num : nums) &#123;<br>            <span class="hljs-keyword">if</span> (num &gt; a) &#123;<br>                c = b;<br>                b = a;<br>                a = num;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a &gt; num &amp;&amp; num &gt; b) &#123;<br>                c = b;<br>                b = num;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (b &gt; num &amp;&amp; num &gt; c) &#123;<br>                c = num;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> c == LONG_MIN ? a : c;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Solution</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模拟</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode 第278场周赛</title>
     <link href="/post/b4b36af5.html"/>
     <url>/post/b4b36af5.html</url>
