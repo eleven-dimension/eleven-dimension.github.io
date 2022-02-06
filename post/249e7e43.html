@@ -16,19 +16,40 @@
   <meta name="author" content="Sophon">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="http://example.com/archives/page/2/index.html">
+    <meta name="description" content="123456789101112131415#include &lt;iostream&gt;#include &lt;functional&gt;int main()&amp;#123;    auto f &#x3D; [](int x)     &amp;#123;        std::function&lt;int(int)&gt; s &#x3D; [&amp;](int n)         &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++11 lambda 递归">
+<meta property="og:url" content="http://example.com/post/249e7e43.html">
 <meta property="og:site_name" content="Sophon">
+<meta property="og:description" content="123456789101112131415#include &lt;iostream&gt;#include &lt;functional&gt;int main()&amp;#123;    auto f &#x3D; [](int x)     &amp;#123;        std::function&lt;int(int)&gt; s &#x3D; [&amp;](int n)         &amp;#123;">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-06T13:21:56.204Z">
+<meta property="article:modified_time" content="2022-02-06T13:24:39.576Z">
 <meta property="article:author" content="Sophon">
+<meta property="article:tag" content="C++11">
+<meta property="article:tag" content="lambda">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>归档 - Sophon</title>
+  <title>C++11 lambda 递归 - Sophon</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -55,7 +76,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -156,9 +177,43 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="归档">
+            <span class="h2" id="subtitle" title="C++11 lambda 递归">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-02-06 21:21" pubdate>
+        2022年2月6日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      248 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      3 分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -171,64 +226,90 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 14 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2022</p>
-    
-    <a href="/post/45b83178.html" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">leetcode 第277场周赛</span>
-      <time style="float: right;">01-27</time>
-    </a>
-  
-    
-    <a href="/post/2f692029.html" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">leetcode 264 丑数 II</span>
-      <time style="float: right;">01-27</time>
-    </a>
-  
-    
-    <a href="/post/be4ef6ff.html" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">leetcode 169 多数元素</span>
-      <time style="float: right;">01-26</time>
-    </a>
-  
-    
-    <a href="/post/59d544d.html" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Czs nb!</span>
-      <time style="float: right;">01-25</time>
-    </a>
-  
-</div>
 
-
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </span>
-  </nav>
-
-
-
-
-              </div>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">C++11 lambda 递归</h1>
+            
+            <div class="markdown-body">
+              <figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;functional&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">auto</span> f = [](<span class="hljs-keyword">int</span> x) <br>    &#123;<br>        std::function&lt;<span class="hljs-built_in"><span class="hljs-keyword">int</span></span>(<span class="hljs-keyword">int</span>)&gt; s = [&amp;](<span class="hljs-keyword">int</span> n) <br>        &#123;<br>            <span class="hljs-keyword">return</span> n == <span class="hljs-number">1</span> ? <span class="hljs-number">1</span> : n + <span class="hljs-built_in">s</span>(n - <span class="hljs-number">1</span>);<br>        &#125;;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">s</span>(x);<br>    &#125;;<br>    std::cout &lt;&lt; <span class="hljs-built_in">f</span>(<span class="hljs-number">4</span>) &lt;&lt; std::endl;<br>&#125;<br></code></pre></td></tr></table></figure>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C/">C++</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C-11/">C++11</a>
+                    
+                      <a class="hover-with-bg" href="/tags/lambda/">lambda</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/f1103434.html">
+                        <span class="hidden-mobile">八卦基础</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -311,6 +392,19 @@
   
 
 
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
 
 
 
