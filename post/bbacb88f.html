@@ -16,21 +16,22 @@
   <meta name="author" content="Sophon">
   <meta name="keywords" content="">
   
-    <meta name="description" content="acumenanomalyardentartisanbasincidercommunalconformcongenialdiverterrandethnicexaltedFahrenheitfaucetflairgregariousintersectionirrigatemanifestationoutrageouslypaucityquarryresembleroamscarcelyscruff">
+    <meta name="description" content="题意如果字符串中不含有任何 ‘aaa’，’bbb’ 或 ‘ccc’ 这样的字符串作为子串，那么该字符串就是一个快乐字符串。 给你三个整数 $a$，$b$ ，$c$，返回任意一个满足下列全部条件的字符串 $s$：  $s$ 是一个尽可能长的快乐字符串。   $s$ 中最多有 $a$ 个字母’a’、$b$个字母 ‘b’、$c$ 个字母 ‘c’ 。   $s$ 中只含有 ‘a’、’b’ 、’c’ 三种字">
 <meta property="og:type" content="article">
-<meta property="og:title" content="托福红书 wordlist 23">
-<meta property="og:url" content="http://example.com/post/df3523b.html">
+<meta property="og:title" content="leetcode 1405 最长快乐字符串">
+<meta property="og:url" content="http://example.com/post/bbacb88f.html">
 <meta property="og:site_name" content="Sophon">
-<meta property="og:description" content="acumenanomalyardentartisanbasincidercommunalconformcongenialdiverterrandethnicexaltedFahrenheitfaucetflairgregariousintersectionirrigatemanifestationoutrageouslypaucityquarryresembleroamscarcelyscruff">
+<meta property="og:description" content="题意如果字符串中不含有任何 ‘aaa’，’bbb’ 或 ‘ccc’ 这样的字符串作为子串，那么该字符串就是一个快乐字符串。 给你三个整数 $a$，$b$ ，$c$，返回任意一个满足下列全部条件的字符串 $s$：  $s$ 是一个尽可能长的快乐字符串。   $s$ 中最多有 $a$ 个字母’a’、$b$个字母 ‘b’、$c$ 个字母 ‘c’ 。   $s$ 中只含有 ‘a’、’b’ 、’c’ 三种字">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-01-29T14:27:21.924Z">
-<meta property="article:modified_time" content="2022-02-07T02:41:52.790Z">
+<meta property="article:published_time" content="2022-02-07T02:31:50.453Z">
+<meta property="article:modified_time" content="2022-02-07T02:39:19.038Z">
 <meta property="article:author" content="Sophon">
-<meta property="article:tag" content="托福红书">
+<meta property="article:tag" content="模拟">
+<meta property="article:tag" content="贪心">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>托福红书 wordlist 23 - Sophon</title>
+  <title>leetcode 1405 最长快乐字符串 - Sophon</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -176,7 +177,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="托福红书 wordlist 23">
+            <span class="h2" id="subtitle" title="leetcode 1405 最长快乐字符串">
               
             </span>
 
@@ -186,8 +187,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-01-29 22:27" pubdate>
-        2022年1月29日 晚上
+      <time datetime="2022-02-07 10:31" pubdate>
+        2022年2月7日 上午
       </time>
     </span>
   
@@ -197,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      258 字
+      837 字
     </span>
   
 
@@ -206,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 分钟
+      7 分钟
     </span>
   
 
@@ -235,11 +236,22 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">托福红书 wordlist 23</h1>
+            <h1 style="display: none">leetcode 1405 最长快乐字符串</h1>
             
             <div class="markdown-body">
-              <p>acumen<br>anomaly<br>ardent<br>artisan<br>basin<br>cider<br>communal<br>conform<br>congenial<br>divert<br>errand<br>ethnic<br>exalted<br>Fahrenheit<br>faucet<br>flair<br>gregarious<br>intersection<br>irrigate<br>manifestation<br>outrageously<br>paucity<br>quarry<br>resemble<br>roam<br>scarcely<br>scruffy<br>shovel<br>shroud<br>silica<br>spontaneity<br>stout<br>sunlit<br>susceptible<br>willow  </p>
-
+              <h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>如果字符串中不含有任何 ‘aaa’，’bbb’ 或 ‘ccc’ 这样的字符串作为子串，那么该字符串就是一个快乐字符串。</p>
+<p>给你三个整数 $a$，$b$ ，$c$，返回任意一个满足下列全部条件的字符串 $s$：</p>
+<blockquote>
+<p>$s$ 是一个尽可能长的快乐字符串。</p>
+</blockquote>
+<blockquote>
+<p>$s$ 中最多有 $a$ 个字母’a’、$b$个字母 ‘b’、$c$ 个字母 ‘c’ 。</p>
+</blockquote>
+<blockquote>
+<p>$s$ 中只含有 ‘a’、’b’ 、’c’ 三种字母。</p>
+</blockquote>
+<h1 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h1><p>优先选用当前数量最多的字母，如果重复，往下继续找。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">string <span class="hljs-title">longestDiverseString</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">int</span> c)</span> </span>&#123;<br>        string res;<br>        vector&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">char</span>&gt;&gt; arr = &#123;&#123;a, <span class="hljs-string">&#x27;a&#x27;</span>&#125;, &#123;b, <span class="hljs-string">&#x27;b&#x27;</span>&#125;, &#123;c, <span class="hljs-string">&#x27;c&#x27;</span>&#125;&#125;;<br>        <br>        <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;<br>            <span class="hljs-built_in">sort</span>(arr.<span class="hljs-built_in">begin</span>(), arr.<span class="hljs-built_in">end</span>(), greater&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">char</span>&gt;&gt;());<br>            <span class="hljs-keyword">bool</span> hasNext = <span class="hljs-literal">false</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp; [freq, ch] : arr) &#123;<br>                <span class="hljs-keyword">int</span> m = res.<span class="hljs-built_in">size</span>();<br>                <span class="hljs-keyword">if</span> (freq &lt;= <span class="hljs-number">0</span>) &#123;<br>                    <span class="hljs-keyword">break</span>;<br>                &#125;<br>                <span class="hljs-keyword">if</span> (m &gt;= <span class="hljs-number">2</span> &amp;&amp; res[m - <span class="hljs-number">2</span>] == ch &amp;&amp; res[m - <span class="hljs-number">1</span>] == ch) &#123;<br>                    <span class="hljs-keyword">continue</span>;<br>                &#125;<br>                hasNext = <span class="hljs-literal">true</span>;<br>                res.<span class="hljs-built_in">push_back</span>(ch);<br>                freq--;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (!hasNext) &#123;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>        &#125;    <br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -248,7 +260,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/English/">English</a>
+                      <a class="hover-with-bg" href="/categories/Solution/">Solution</a>
                     
                   </div>
                 
@@ -256,7 +268,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%89%98%E7%A6%8F%E7%BA%A2%E4%B9%A6/">托福红书</a>
+                      <a class="hover-with-bg" href="/tags/%E6%A8%A1%E6%8B%9F/">模拟</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%B4%AA%E5%BF%83/">贪心</a>
                     
                   </div>
                 
@@ -273,9 +287,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/post/cbf25262.html">
+                      <a href="/post/5b7101cb.html">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">2022年1月31日除夕与父象棋对局</span>
+                        <span class="hidden-mobile">leetcode 第279场周赛</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -283,8 +297,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/post/e631459b.html">
-                        <span class="hidden-mobile">leetcode 1314 矩阵区域和</span>
+                      <a href="/post/249e7e43.html">
+                        <span class="hidden-mobile">C++11 lambda 递归</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -429,6 +443,48 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 
