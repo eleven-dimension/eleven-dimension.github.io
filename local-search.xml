@@ -4,6 +4,58 @@
   
   
   <entry>
+    <title>C++11 pair作为无序容器的key</title>
+    <link href="/post/e35597e3.html"/>
+    <url>/post/e35597e3.html</url>
+    
+    <content type="html"><![CDATA[<p>由于 $pair$ 没有自带哈希函数，需要手写并传入。无序容器底层为哈希表，需要哈希函数。</p><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> hash_p = [](<span class="hljs-keyword">const</span> pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; &amp;p) -&gt; <span class="hljs-keyword">size_t</span> &#123;<br>    <span class="hljs-keyword">static</span> hash&lt;<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>&gt; hash_ll;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">hash_ll</span>(<br>        p.first + (<span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>&gt;(p.second) &lt;&lt; <span class="hljs-number">32</span>)<br>    );<br>&#125;;<br>unordered_set&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;, <span class="hljs-keyword">decltype</span>(hash_p)&gt; <span class="hljs-built_in">lamp_xy</span>(<span class="hljs-number">0</span>, hash_p);<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C++11</tag>
+      
+      <tag>std::hash</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>leetcode 1001 网格照明</title>
+    <link href="/post/fdf002ec.html"/>
+    <url>/post/fdf002ec.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>有一个 $n \times n$ 的矩阵 $(n &lt; 1e9)$ ，每个位置上有一个灯，给出一个灯位置序列，表示依次打开这些灯。每个灯可以<strong>照亮</strong>同一行同一列还有两条对角线上的所有格子。再给出一个位置序列，表示查询每个位置是否被<strong>照亮</strong>，同时对于每个询问位置，如果该位置加上周围八个格子里面有亮着的灯，就把这些亮灯熄灭。</p><h1 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h1><p>注意题意，灯只会照亮格子，不会点亮一排灯。如果直接模拟亮灯，时空不允许。因为照亮的是一排，考虑对所有横排竖排斜排编号，维护这些排上的亮灯个数。查询某个格子时，如果经过这个格子的所有横排竖排斜排上没有亮灯，查询答案即为没被照亮。对于灭灯操作，考虑维护一个亮灯集合，用于查询该位置及其周围是否有亮灯，如果有删除位置并修改对应排上的亮灯个数。</p><p>对于排的编号，行列可以用下标编号。对角线可以用下标之差或下标之和编号，因为某一对角线排上所有格子下标差是定值。反对角线同理，和是定值。</p><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">gridIllumination</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; lamps, vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; queries)</span> </span>&#123;<br>        <span class="hljs-keyword">using</span> pii = pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;;<br>        unordered_map&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; col_cnt, row_cnt, dia_cnt, adia_cnt;<br>        <span class="hljs-keyword">auto</span> hash_p = [](<span class="hljs-keyword">const</span> pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; &amp;p) -&gt; <span class="hljs-keyword">size_t</span> &#123;<br>            <span class="hljs-keyword">static</span> hash&lt;<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>&gt; hash_ll;<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">hash_ll</span>(p.first + (<span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>&gt;(p.second) &lt;&lt; <span class="hljs-number">32</span>));<br>        &#125;;<br><br>        <span class="hljs-function">unordered_set&lt;pii, <span class="hljs-title">decltype</span><span class="hljs-params">(hash_p)</span>&gt; <span class="hljs-title">lamp_xy</span><span class="hljs-params">(<span class="hljs-number">0</span>, hash_p)</span></span>;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> lamp : lamps)<br>        &#123;<br>            <span class="hljs-keyword">int</span> x = lamp[<span class="hljs-number">0</span>], y = lamp[<span class="hljs-number">1</span>];<br>            <span class="hljs-keyword">if</span> (lamp_xy.<span class="hljs-built_in">count</span>(&#123;x, y&#125;) &gt; <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;<br><br>            col_cnt[y]++;<br>            row_cnt[x]++;<br>            dia_cnt[x - y]++;<br>            adia_cnt[x + y]++;<br><br>            lamp_xy.<span class="hljs-built_in">insert</span>(&#123;x, y&#125;);<br>        &#125;<br><br>        cout &lt;&lt; row_cnt[<span class="hljs-number">0</span>];<br><br>        vector&lt;<span class="hljs-keyword">int</span>&gt; ans;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> query : queries)<br>        &#123;<br>            <span class="hljs-keyword">int</span> x = query[<span class="hljs-number">0</span>], y = query[<span class="hljs-number">1</span>];<br>            <span class="hljs-keyword">if</span> ((col_cnt.<span class="hljs-built_in">count</span>(y) &gt; <span class="hljs-number">0</span> &amp;&amp; col_cnt[y] &gt; <span class="hljs-number">0</span>) || <br>                (row_cnt.<span class="hljs-built_in">count</span>(x) &gt; <span class="hljs-number">0</span> &amp;&amp; row_cnt[x] &gt; <span class="hljs-number">0</span>) ||<br>                (dia_cnt.<span class="hljs-built_in">count</span>(x - y) &gt; <span class="hljs-number">0</span> &amp;&amp; dia_cnt[x - y] &gt; <span class="hljs-number">0</span>) ||<br>                adia_cnt.<span class="hljs-built_in">count</span>(x + y) &gt; <span class="hljs-number">0</span> &amp;&amp; adia_cnt[x + y] &gt; <span class="hljs-number">0</span>)<br>            &#123;<br>                ans.<span class="hljs-built_in">push_back</span>(<span class="hljs-number">1</span>);<br>            &#125;<br>            <span class="hljs-keyword">else</span><br>            &#123;<br>                ans.<span class="hljs-built_in">push_back</span>(<span class="hljs-number">0</span>);<br>            &#125;<br><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> nx = x - <span class="hljs-number">1</span>; nx &lt;= x + <span class="hljs-number">1</span>; nx++)<br>            &#123;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> ny = y - <span class="hljs-number">1</span>; ny &lt;= y + <span class="hljs-number">1</span>; ny++)<br>                &#123;<br>                    <span class="hljs-keyword">if</span> (nx &lt; <span class="hljs-number">0</span> || ny &lt; <span class="hljs-number">0</span> || nx &gt;= n || ny &gt;= n) <span class="hljs-keyword">continue</span>;<br>                    <span class="hljs-keyword">auto</span> iter = lamp_xy.<span class="hljs-built_in">find</span>(&#123;nx, ny&#125;);<br>                    <span class="hljs-keyword">if</span> (iter != lamp_xy.<span class="hljs-built_in">end</span>()) <br>                    &#123;<br>                        lamp_xy.<span class="hljs-built_in">erase</span>(iter);<br><br>                        col_cnt[ny]--;<br>                        row_cnt[nx]--;<br>                        dia_cnt[nx - ny]--;<br>                        adia_cnt[nx + ny]--;                       <br>                    &#125;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Solution</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>哈希</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode 第279场周赛</title>
     <link href="/post/5b7101cb.html"/>
     <url>/post/5b7101cb.html</url>
@@ -78,7 +130,7 @@
       
       <tag>C++11</tag>
       
-      <tag>lambda</tag>
+      <tag>lambda表达式</tag>
       
     </tags>
     

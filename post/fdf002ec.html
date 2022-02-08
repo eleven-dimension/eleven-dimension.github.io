@@ -16,23 +16,21 @@
   <meta name="author" content="Sophon">
   <meta name="keywords" content="">
   
-    <meta name="description" content="T1 对奇偶下标分别排序水题 T2 重排数字的最小值题意给出一个整数，重排 $num$ 中的各位数字，使其值最小化且不含 任何前导零。 做法对于负数，对所有位降序排序。对于正数，升序排序，之后找到第一个非零值，交换到第一个位置。 代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546">
+    <meta name="description" content="题意有一个 $n \times n$ 的矩阵 $(n &lt; 1e9)$ ，每个位置上有一个灯，给出一个灯位置序列，表示依次打开这些灯。每个灯可以照亮同一行同一列还有两条对角线上的所有格子。再给出一个位置序列，表示查询每个位置是否被照亮，同时对于每个询问位置，如果该位置加上周围八个格子里面有亮着的灯，就把这些亮灯熄灭。 做法注意题意，灯只会照亮格子，不会点亮一排灯。如果直接模拟亮灯，时空不允许。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode 第279场周赛">
-<meta property="og:url" content="http://example.com/post/5b7101cb.html">
+<meta property="og:title" content="leetcode 1001 网格照明">
+<meta property="og:url" content="http://example.com/post/fdf002ec.html">
 <meta property="og:site_name" content="Sophon">
-<meta property="og:description" content="T1 对奇偶下标分别排序水题 T2 重排数字的最小值题意给出一个整数，重排 $num$ 中的各位数字，使其值最小化且不含 任何前导零。 做法对于负数，对所有位降序排序。对于正数，升序排序，之后找到第一个非零值，交换到第一个位置。 代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546">
+<meta property="og:description" content="题意有一个 $n \times n$ 的矩阵 $(n &lt; 1e9)$ ，每个位置上有一个灯，给出一个灯位置序列，表示依次打开这些灯。每个灯可以照亮同一行同一列还有两条对角线上的所有格子。再给出一个位置序列，表示查询每个位置是否被照亮，同时对于每个询问位置，如果该位置加上周围八个格子里面有亮着的灯，就把这些亮灯熄灭。 做法注意题意，灯只会照亮格子，不会点亮一排灯。如果直接模拟亮灯，时空不允许。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-02-07T02:46:04.340Z">
-<meta property="article:modified_time" content="2022-02-07T04:49:25.153Z">
+<meta property="article:published_time" content="2022-02-08T02:43:56.230Z">
+<meta property="article:modified_time" content="2022-02-08T03:04:12.440Z">
 <meta property="article:author" content="Sophon">
-<meta property="article:tag" content="模拟">
-<meta property="article:tag" content="动态规划">
-<meta property="article:tag" content="力扣周赛">
+<meta property="article:tag" content="哈希">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>leetcode 第279场周赛 - Sophon</title>
+  <title>leetcode 1001 网格照明 - Sophon</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -178,7 +176,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="leetcode 第279场周赛">
+            <span class="h2" id="subtitle" title="leetcode 1001 网格照明">
               
             </span>
 
@@ -188,8 +186,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-02-07 10:46" pubdate>
-        2022年2月7日 上午
+      <time datetime="2022-02-08 10:43" pubdate>
+        2022年2月8日 上午
       </time>
     </span>
   
@@ -199,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      1.9k 字
     </span>
   
 
@@ -208,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15 分钟
+      16 分钟
     </span>
   
 
@@ -237,20 +235,13 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">leetcode 第279场周赛</h1>
+            <h1 style="display: none">leetcode 1001 网格照明</h1>
             
             <div class="markdown-body">
-              <h1 id="T1-对奇偶下标分别排序"><a href="#T1-对奇偶下标分别排序" class="headerlink" title="T1 对奇偶下标分别排序"></a>T1 对奇偶下标分别排序</h1><p>水题</p>
-<h1 id="T2-重排数字的最小值"><a href="#T2-重排数字的最小值" class="headerlink" title="T2 重排数字的最小值"></a>T2 重排数字的最小值</h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给出一个整数，重排 $num$ 中的各位数字，使其值最小化且不含 任何前导零。</p>
-<h2 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h2><p>对于负数，对所有位降序排序。对于正数，升序排序，之后找到第一个非零值，交换到第一个位置。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">smallestNumber</span><span class="hljs-params">(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> num)</span> </span>&#123;<br>        <span class="hljs-keyword">using</span> ll = <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>;<br>        <span class="hljs-keyword">bool</span> neg = (num &lt; <span class="hljs-number">0</span>);<br>        <br>        vector&lt;ll&gt; v;<br>        <span class="hljs-keyword">if</span> (neg) num = -num;<br>        <br>        <span class="hljs-keyword">while</span> (num)<br>        &#123;<br>            v.<span class="hljs-built_in">push_back</span>(num % <span class="hljs-number">10</span>);<br>            num /= <span class="hljs-number">10</span>;<br>        &#125;<br>        <br>        ll ans = <span class="hljs-number">0</span>, p = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span> (!neg)<br>        &#123;<br>            <span class="hljs-built_in">sort</span>(v.<span class="hljs-built_in">begin</span>(), v.<span class="hljs-built_in">end</span>());<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; v.<span class="hljs-built_in">size</span>(); i++)<br>            &#123;<br>                <span class="hljs-keyword">if</span> (v[i] != <span class="hljs-number">0</span>)<br>                &#123;<br>                    <span class="hljs-built_in">swap</span>(v[i], v[<span class="hljs-number">0</span>]);<br>                    <span class="hljs-keyword">break</span>;<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = v.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--)<br>            &#123;<br>                ans += v[i] * p;<br>                p *= <span class="hljs-number">10</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">else</span><br>        &#123;<br>            <span class="hljs-built_in">sort</span>(v.<span class="hljs-built_in">begin</span>(), v.<span class="hljs-built_in">end</span>(), greater&lt;ll&gt;());<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = v.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--)<br>            &#123;<br>                ans += v[i] * p;<br>                p *= <span class="hljs-number">10</span>;<br>            &#125;<br>            ans = -ans;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-
-<h1 id="T3-设计位集"><a href="#T3-设计位集" class="headerlink" title="T3 设计位集"></a>T3 设计位集</h1><h2 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h2><p>设计 $bitset$ 类，支持操作：单点置零置一，翻转所有位，统计一的个数等。</p>
-<h2 id="做法-1"><a href="#做法-1" class="headerlink" title="做法"></a>做法</h2><p>维护标记是否处于翻转态，再分类讨论，正确维护一的计数器即可。</p>
-<h1 id="T4-移除所有载有违禁货物车厢所需的最少时间"><a href="#T4-移除所有载有违禁货物车厢所需的最少时间" class="headerlink" title="T4 移除所有载有违禁货物车厢所需的最少时间"></a>T4 移除所有载有违禁货物车厢所需的最少时间</h1><h2 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h2><p>给出一个 $01$ 字符串，每一位表示这一节车厢有无违禁品。现在需要将所有包含违禁品的车厢去掉。从左端或者右端移除第一节车厢代价为 $1$ ，移除中间某一节车厢代价为 $2$ 。求出最小代价。</p>
-<h2 id="做法-2"><a href="#做法-2" class="headerlink" title="做法"></a>做法</h2><p>将列车分成左右两部分，枚举分割点，分别计算两半段的代价，取最小值。<br>维护 $pre[i]$ 表示移除前 $i$ 节车厢中的所有违禁货物车厢所花费的最少时间。当 $s[i]=0$ 时，无需移除车厢，则有 $pre[i]=pre[i-1]$ 。当 $s[i]=1$ 时，可以单独移除第 $i$ 节车厢，也可以移除前 $i$ 个车厢，二者取最小值，即 $pre[i]=\min(pre[i-1]+2,\ i+1)$ ， $i+1$ 是因为下标从 $0$ 开始。对于右半部分，维护 $suf[\ ]$ ，同理。最后取 $\min(pre[i]+suf[i+1])$ 为答案。  </p>
-<p>计算 $pre[\ ]$ 可以和枚举分割点相结合，所以可以先计算 $suf[\ ]$ 。<br>考虑到 $pre[i]$ 只和前一个 $pre[i-1]$ 有关，可以只用一个变量 $pre$ 表示。</p>
-<h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">minimumTime</span><span class="hljs-params">(string s)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> n = s.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">suf</span><span class="hljs-params">(n + <span class="hljs-number">1</span>, <span class="hljs-number">0</span>)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = n - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>            <span class="hljs-keyword">if</span> (s[i] == <span class="hljs-string">&#x27;1&#x27;</span>) &#123;<br>                suf[i] = <span class="hljs-built_in">min</span>(suf[i + <span class="hljs-number">1</span>] + <span class="hljs-number">2</span>, n - i);<br>            &#125;<br>            <span class="hljs-keyword">else</span> suf[i] = suf[i + <span class="hljs-number">1</span>];<br>        &#125;<br>        <br>        <span class="hljs-comment">// 注意左半段为空的情况，ans := suf[0]</span><br>        <span class="hljs-keyword">int</span> ans = suf[<span class="hljs-number">0</span>]; <br>        <span class="hljs-keyword">int</span> pre = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            <span class="hljs-keyword">if</span> (s[i] == <span class="hljs-string">&#x27;1&#x27;</span>) &#123;<br>                pre = <span class="hljs-built_in">min</span>(pre + <span class="hljs-number">2</span>, i + <span class="hljs-number">1</span>);<br>                ans = <span class="hljs-built_in">min</span>(ans, pre + suf[i + <span class="hljs-number">1</span>]);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+              <h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>有一个 $n \times n$ 的矩阵 $(n &lt; 1e9)$ ，每个位置上有一个灯，给出一个灯位置序列，表示依次打开这些灯。每个灯可以<strong>照亮</strong>同一行同一列还有两条对角线上的所有格子。再给出一个位置序列，表示查询每个位置是否被<strong>照亮</strong>，同时对于每个询问位置，如果该位置加上周围八个格子里面有亮着的灯，就把这些亮灯熄灭。</p>
+<h1 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h1><p>注意题意，灯只会照亮格子，不会点亮一排灯。如果直接模拟亮灯，时空不允许。因为照亮的是一排，考虑对所有横排竖排斜排编号，维护这些排上的亮灯个数。查询某个格子时，如果经过这个格子的所有横排竖排斜排上没有亮灯，查询答案即为没被照亮。对于灭灯操作，考虑维护一个亮灯集合，用于查询该位置及其周围是否有亮灯，如果有删除位置并修改对应排上的亮灯个数。</p>
+<p>对于排的编号，行列可以用下标编号。对角线可以用下标之差或下标之和编号，因为某一对角线排上所有格子下标差是定值。反对角线同理，和是定值。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">gridIllumination</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; lamps, vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; queries)</span> </span>&#123;<br>        <span class="hljs-keyword">using</span> pii = pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;;<br>        unordered_map&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; col_cnt, row_cnt, dia_cnt, adia_cnt;<br>        <span class="hljs-keyword">auto</span> hash_p = [](<span class="hljs-keyword">const</span> pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; &amp;p) -&gt; <span class="hljs-keyword">size_t</span> &#123;<br>            <span class="hljs-keyword">static</span> hash&lt;<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>&gt; hash_ll;<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">hash_ll</span>(p.first + (<span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>&gt;(p.second) &lt;&lt; <span class="hljs-number">32</span>));<br>        &#125;;<br><br>        <span class="hljs-function">unordered_set&lt;pii, <span class="hljs-title">decltype</span><span class="hljs-params">(hash_p)</span>&gt; <span class="hljs-title">lamp_xy</span><span class="hljs-params">(<span class="hljs-number">0</span>, hash_p)</span></span>;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> lamp : lamps)<br>        &#123;<br>            <span class="hljs-keyword">int</span> x = lamp[<span class="hljs-number">0</span>], y = lamp[<span class="hljs-number">1</span>];<br>            <span class="hljs-keyword">if</span> (lamp_xy.<span class="hljs-built_in">count</span>(&#123;x, y&#125;) &gt; <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;<br><br>            col_cnt[y]++;<br>            row_cnt[x]++;<br>            dia_cnt[x - y]++;<br>            adia_cnt[x + y]++;<br><br>            lamp_xy.<span class="hljs-built_in">insert</span>(&#123;x, y&#125;);<br>        &#125;<br><br>        cout &lt;&lt; row_cnt[<span class="hljs-number">0</span>];<br><br>        vector&lt;<span class="hljs-keyword">int</span>&gt; ans;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> query : queries)<br>        &#123;<br>            <span class="hljs-keyword">int</span> x = query[<span class="hljs-number">0</span>], y = query[<span class="hljs-number">1</span>];<br>            <span class="hljs-keyword">if</span> ((col_cnt.<span class="hljs-built_in">count</span>(y) &gt; <span class="hljs-number">0</span> &amp;&amp; col_cnt[y] &gt; <span class="hljs-number">0</span>) || <br>                (row_cnt.<span class="hljs-built_in">count</span>(x) &gt; <span class="hljs-number">0</span> &amp;&amp; row_cnt[x] &gt; <span class="hljs-number">0</span>) ||<br>                (dia_cnt.<span class="hljs-built_in">count</span>(x - y) &gt; <span class="hljs-number">0</span> &amp;&amp; dia_cnt[x - y] &gt; <span class="hljs-number">0</span>) ||<br>                adia_cnt.<span class="hljs-built_in">count</span>(x + y) &gt; <span class="hljs-number">0</span> &amp;&amp; adia_cnt[x + y] &gt; <span class="hljs-number">0</span>)<br>            &#123;<br>                ans.<span class="hljs-built_in">push_back</span>(<span class="hljs-number">1</span>);<br>            &#125;<br>            <span class="hljs-keyword">else</span><br>            &#123;<br>                ans.<span class="hljs-built_in">push_back</span>(<span class="hljs-number">0</span>);<br>            &#125;<br><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> nx = x - <span class="hljs-number">1</span>; nx &lt;= x + <span class="hljs-number">1</span>; nx++)<br>            &#123;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> ny = y - <span class="hljs-number">1</span>; ny &lt;= y + <span class="hljs-number">1</span>; ny++)<br>                &#123;<br>                    <span class="hljs-keyword">if</span> (nx &lt; <span class="hljs-number">0</span> || ny &lt; <span class="hljs-number">0</span> || nx &gt;= n || ny &gt;= n) <span class="hljs-keyword">continue</span>;<br>                    <span class="hljs-keyword">auto</span> iter = lamp_xy.<span class="hljs-built_in">find</span>(&#123;nx, ny&#125;);<br>                    <span class="hljs-keyword">if</span> (iter != lamp_xy.<span class="hljs-built_in">end</span>()) <br>                    &#123;<br>                        lamp_xy.<span class="hljs-built_in">erase</span>(iter);<br><br>                        col_cnt[ny]--;<br>                        row_cnt[nx]--;<br>                        dia_cnt[nx - ny]--;<br>                        adia_cnt[nx + ny]--;                       <br>                    &#125;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -267,11 +258,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%A8%A1%E6%8B%9F/">模拟</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E5%8A%9B%E6%89%A3%E5%91%A8%E8%B5%9B/">力扣周赛</a>
+                      <a class="hover-with-bg" href="/tags/%E5%93%88%E5%B8%8C/">哈希</a>
                     
                   </div>
                 
@@ -288,9 +275,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/post/fdf002ec.html">
+                      <a href="/post/e35597e3.html">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">leetcode 1001 网格照明</span>
+                        <span class="hidden-mobile">C++11 pair作为无序容器的key</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -298,8 +285,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/post/bbacb88f.html">
-                        <span class="hidden-mobile">leetcode 1405 最长快乐字符串</span>
+                      <a href="/post/5b7101cb.html">
+                        <span class="hidden-mobile">leetcode 第279场周赛</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
