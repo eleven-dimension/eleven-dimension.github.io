@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>leetcode 第280场周赛</title>
+    <link href="/post/349cdec7.html"/>
+    <url>/post/349cdec7.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="T1-得到-0-的操作数"><a href="#T1-得到-0-的操作数" class="headerlink" title="T1 得到 0 的操作数"></a>T1 得到 0 的操作数</h1><p>水题</p><h1 id="T2-使数组变成交替数组的最少操作数"><a href="#T2-使数组变成交替数组的最少操作数" class="headerlink" title="T2 使数组变成交替数组的最少操作数"></a>T2 使数组变成交替数组的最少操作数</h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>如果一个数组为<strong>交替数组</strong>，那么它奇数下标子序列值相同均为 $x$、偶数下标子序列值相同均为 $y$ ，且 $x \neq y$ 。给出任意一个数组，问至少几次单点修改操作才能使它变成<strong>交替数组</strong>。</p><h2 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h2><p>考虑贪心，不论奇数子列还是偶数子列，保留出现次数最大的那个数 $fx$ 和 $fy$，将其他数改成最大数。但还需考虑 $fx=fy$ 的情况。此时需要将出现次数第二大的数考虑进来，设奇偶子列出现次数第二大的数分别为 $sx$ 和 $sy$，答案为 $min(n - fx - sy, n - fy - sx)$ 。</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">minimumOperations</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-built_in">v</span>(<span class="hljs-number">2</span>, vector&lt;<span class="hljs-keyword">int</span>&gt;(<span class="hljs-number">1e5</span> + <span class="hljs-number">10</span>, <span class="hljs-number">0</span>));<br>        <span class="hljs-keyword">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) v[i &amp; <span class="hljs-number">1</span>][nums[i]]++;<br><br>        <span class="hljs-keyword">int</span> f1 = <span class="hljs-built_in">max_element</span>(v[<span class="hljs-number">0</span>].<span class="hljs-built_in">begin</span>(), v[<span class="hljs-number">0</span>].<span class="hljs-built_in">end</span>()) - v[<span class="hljs-number">0</span>].<span class="hljs-built_in">begin</span>();<br>        <span class="hljs-keyword">int</span> f2 = <span class="hljs-built_in">max_element</span>(v[<span class="hljs-number">1</span>].<span class="hljs-built_in">begin</span>(), v[<span class="hljs-number">1</span>].<span class="hljs-built_in">end</span>()) - v[<span class="hljs-number">1</span>].<span class="hljs-built_in">begin</span>();<br>        <span class="hljs-keyword">if</span> (f1 != f2) <br>        &#123;<br>            <span class="hljs-keyword">return</span> n - v[<span class="hljs-number">0</span>][f1] - v[<span class="hljs-number">1</span>][f2];<br>        &#125;<br><br>        <span class="hljs-keyword">int</span> fv1 = v[<span class="hljs-number">0</span>][f1];<br>        <span class="hljs-keyword">int</span> fv2 = v[<span class="hljs-number">1</span>][f2];<br>        v[<span class="hljs-number">0</span>][f1] = <span class="hljs-number">0</span>;<br>        v[<span class="hljs-number">1</span>][f2] = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> s1 = <span class="hljs-built_in">max_element</span>(v[<span class="hljs-number">0</span>].<span class="hljs-built_in">begin</span>(), v[<span class="hljs-number">0</span>].<span class="hljs-built_in">end</span>()) - v[<span class="hljs-number">0</span>].<span class="hljs-built_in">begin</span>();<br>        <span class="hljs-keyword">int</span> s2 = <span class="hljs-built_in">max_element</span>(v[<span class="hljs-number">1</span>].<span class="hljs-built_in">begin</span>(), v[<span class="hljs-number">1</span>].<span class="hljs-built_in">end</span>()) - v[<span class="hljs-number">1</span>].<span class="hljs-built_in">begin</span>();<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">min</span>(n - fv1 - v[<span class="hljs-number">1</span>][s2], n - v[<span class="hljs-number">0</span>][s1] - fv2);<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><h1 id="T3-拿出最少数目的魔法豆"><a href="#T3-拿出最少数目的魔法豆" class="headerlink" title="T3 拿出最少数目的魔法豆"></a>T3 拿出最少数目的魔法豆</h1><h2 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h2><p>给你一个正整数数组，其中每个整数表示一个袋子里装的魔法豆的数目。请你从每个袋子中拿出一些豆子（也可以不拿出），使得剩下的<strong>非空</strong>袋子中魔法豆的数目相等。求需要拿出魔法豆的最少数目。</p><h2 id="做法-1"><a href="#做法-1" class="headerlink" title="做法"></a>做法</h2><blockquote><p>去掉空袋子之后，最优解是使得每一个非空袋子的数量减到最小的那一个。  </p></blockquote><blockquote><p>拿走最少，等价于剩下最多。  </p></blockquote><blockquote><p>数组每个数的顺序对结果没有影响。</p></blockquote><p>考虑排序，再从前向后枚举，把之前的袋子删空，当前袋子 $beans[i]$ 即为非空袋子中最小的那个，当前之后的袋子里的值，需要被减小到这个最小袋子的值。剩下的豆子数量即为 $beans[i] * (n - i)$，更新答案。</p><h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">minimumRemoval</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; beans)</span> </span>&#123;<br>        <span class="hljs-keyword">using</span> ll = <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>;<br>        <span class="hljs-keyword">int</span> n = beans.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-built_in">sort</span>(beans.<span class="hljs-built_in">begin</span>(), beans.<span class="hljs-built_in">end</span>());<br>        ll ans = <span class="hljs-number">0</span>;<br>        ll sum = <span class="hljs-built_in">accumulate</span>(beans.<span class="hljs-built_in">begin</span>(), beans.<span class="hljs-built_in">end</span>(), <span class="hljs-number">0LL</span>);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>        &#123;<br>            ans = <span class="hljs-built_in">max</span>(ans, beans[i] * <span class="hljs-built_in">ll</span>(n - i));<br>        &#125;<br>        <span class="hljs-keyword">return</span> sum - ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><h1 id="T4"><a href="#T4" class="headerlink" title="T4"></a>T4</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>Solution</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>模拟</tag>
+      
+      <tag>贪心</tag>
+      
+      <tag>排序</tag>
+      
+      <tag>力扣周赛</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode 847 访问所有节点的最短路径</title>
     <link href="/post/53269aa1.html"/>
     <url>/post/53269aa1.html</url>
@@ -259,9 +290,9 @@
     
     <tags>
       
-      <tag>力扣周赛</tag>
-      
       <tag>搜索</tag>
+      
+      <tag>力扣周赛</tag>
       
       <tag>字符哈希</tag>
       
