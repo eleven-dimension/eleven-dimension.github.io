@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>leetcode 101 对称二叉树</title>
+    <link href="/post/afa5c8e8.html"/>
+    <url>/post/afa5c8e8.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>给定一个二叉树及其根节点，检查是否轴对称。</p><h1 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h1><p>如果一棵树的左右子树轴对称，那么这棵树对称。于是问题转化为左右两棵子树是否镜像，同样这个问题可以拆分成【左子树的左子树和右子树的右子树是否镜像】和【左子树的右子树和右子树的左子树是否镜像】这两个子问题，可以递归解决。注意到镜像时的子问题左右已经互换了，使用两个向左右相反方向移动的指针递归遍历两棵树即可。</p><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">check</span><span class="hljs-params">(TreeNode *p, TreeNode *q)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (!p &amp;&amp; !q) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        <span class="hljs-keyword">if</span> (!p || !q) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        <span class="hljs-keyword">return</span> p-&gt;val == q-&gt;val &amp;&amp; <span class="hljs-built_in">check</span>(p-&gt;left, q-&gt;right) &amp;&amp; <span class="hljs-built_in">check</span>(p-&gt;right, q-&gt;left);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isSymmetric</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">check</span>(root, root);<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Solution</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>DFS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode 第280场周赛</title>
     <link href="/post/349cdec7.html"/>
     <url>/post/349cdec7.html</url>
