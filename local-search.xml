@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>记一次帮儿子装anaconda</title>
+    <link href="/post/5e3ceda0.html"/>
+    <url>/post/5e3ceda0.html</url>
+    
+    <content type="html"><![CDATA[<p>儿子conda炸了，卸载重装，缺Scripts一堆文件。换清华源老版本，conda install连清华源ssl error，改ssl、http，卡在fetching meta。</p><p>conda-clean后运行uninstall.exe，成功。</p><p>记逝去的一个下午&gt;_&lt;</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Miscellany</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>anaconda</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode 260 只出现一次的数字 III</title>
     <link href="/post/4db2f006.html"/>
     <url>/post/4db2f006.html</url>
@@ -95,11 +120,11 @@
     
     <tags>
       
+      <tag>排序</tag>
+      
       <tag>模拟</tag>
       
       <tag>贪心</tag>
-      
-      <tag>排序</tag>
       
       <tag>力扣周赛</tag>
       
