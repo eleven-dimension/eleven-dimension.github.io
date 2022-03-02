@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>leetcode 260 只出现一次的数字 III</title>
+    <link href="/post/4db2f006.html"/>
+    <url>/post/4db2f006.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>给定一个整数数组 $nums$，其中恰好有两个元素只出现一次，其余所有元素均出现两次。 找出只出现一次的那两个元素。</p><h1 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h1><p>设两个不同的数是 $a$ 和 $b$， 取所有数的异或和 $x$，有$x = a \oplus b$ 。用 $y = x &amp; -x$ 取出 $x$ 最低的比特 $1$ 位。设 $y = 1 &lt;&lt; t$ ，那么就有$a$ 和 $b$ 的二进制表示的第 $t$ 位 <strong>不同</strong>，一个是 $1$ ，一个是 $0$ 。</p><p>将所有数按照二进制表示的第 $t$ 位是 $1$ 还是 $0$ 分成 $A$ 和 $B$ 两组，由于除了 $a$ 和 $b$ 以外的其他数都会出现两次，所以$A$ 和 $B$ 两组的<strong>组内异或和</strong>的结果即为 $a$ 和 $b$。</p><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">singleNumber</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> xorsum = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> num: nums) &#123;<br>            xorsum ^= num;<br>        &#125;<br>        <span class="hljs-comment">// 防止溢出</span><br>        <span class="hljs-keyword">int</span> lsb = (xorsum == INT_MIN ? xorsum : xorsum &amp; (-xorsum));<br>        <span class="hljs-keyword">int</span> type1 = <span class="hljs-number">0</span>, type2 = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> num: nums) &#123;<br>            <span class="hljs-keyword">if</span> (num &amp; lsb) &#123;<br>                type1 ^= num;<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                type2 ^= num;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> &#123;type1, type2&#125;;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Solution</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>位运算</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>八字笔记</title>
+    <link href="/post/47cb288a.html"/>
+    <url>/post/47cb288a.html</url>
+    
+    <content type="html"><![CDATA[<p>食神为泄，为表达，印为吸收，为自我反省。印弱食神旺，不会反省，若火土旺盛，日主发脾气。食伤又主想法说话，食伤旺，胡思乱想，内心烦躁。食神说话，伤官辱骂。</p><p>土食伤，堵塞不通，自寻烦恼。</p><p>木为脑神经，为记忆，缺木，主忘性大。</p><p>曼哈顿距离为一的两个宫位之间一定有作用。月干与时干之间有作用。同种五行相连，合为一个整体。</p><p>印弱食神旺，说话无逻辑，跑题。禄星位置表示事业位置。    </p><p>水代表血压。</p><p>水代表财，表示低下，克火泄金生木。子水克午火，心脏病，子水为子宫，午火为心脏，内心贪婪。水泄金，若金为财，流年见水，破财，男命妻子外遇。水生木，若水为财，财生杀，破财灾。水气味为咸。水主随机应变，主变化和智慧。亥时21-23点，子时23-1点。水为肾脏、膀胱、泌尿生殖、骨髓、头发、耳朵。水火交战，烫伤之意。壬辰，妊娠之意。水为冬天，雨天，阴天。水为贪婪，淫邪好色，水多不讲义气。行业水为水产，冷冻，旅游，火警，渔具，西医，搬迁运输，水有奔波之意。</p><p>地支主静，天干主动</p><h2 id="地支关系"><a href="#地支关系" class="headerlink" title="地支关系"></a>地支关系</h2><p>子丑合土，寅亥合木，卯戌合火，辰酉合金，巳申合水，午未合土<br>亥卯未三合木局，寅午戌三合火局，巳酉丑三合金局，申子辰三合水局<br>寅卯辰三会木局，巳午未三会火局，申酉戌三会金局，亥子丑三会水局<br>子午冲，丑未冲，寅申冲，卯酉冲，辰戌冲，巳亥冲<br>子未相害，丑午相害，寅巳相害，卯辰相害，申亥相害，酉戌相害<br>辰辰自刑，酉酉自刑，午午自刑，亥亥自刑</p><p>生方、被生方力量接近，生方减力而不受伤。<br>生多为克。生方太弱，被生方太强，生方被泄，受伤严重。<br>土多金埋，主抑郁、肺痨。</p><h3 id="姓名学"><a href="#姓名学" class="headerlink" title="姓名学"></a>姓名学</h3><p>品字形、左中右、上中下，婚姻不顺，五行单一力量强。品字形，坤造为右下部，乾造为上部</p><h3 id="李德旺衰"><a href="#李德旺衰" class="headerlink" title="李德旺衰"></a>李德旺衰</h3><p>多于1/2小于3/4为偏强，(3/4, 1)为假从强，1为真从强。地支藏干力量：100；70+30；60+30+10；透干36，104-114为<strong>五行</strong>中和。李德重日支轻月令。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Bazi</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>八字</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode 101 对称二叉树</title>
     <link href="/post/afa5c8e8.html"/>
     <url>/post/afa5c8e8.html</url>
@@ -45,11 +95,11 @@
     
     <tags>
       
+      <tag>排序</tag>
+      
       <tag>模拟</tag>
       
       <tag>贪心</tag>
-      
-      <tag>排序</tag>
       
       <tag>力扣周赛</tag>
       
@@ -76,9 +126,9 @@
     
     <tags>
       
-      <tag>状压dp</tag>
-      
       <tag>搜索</tag>
+      
+      <tag>状压dp</tag>
       
       <tag>二进制</tag>
       
@@ -315,9 +365,9 @@
     
     <tags>
       
-      <tag>搜索</tag>
-      
       <tag>力扣周赛</tag>
+      
+      <tag>搜索</tag>
       
       <tag>字符哈希</tag>
       
