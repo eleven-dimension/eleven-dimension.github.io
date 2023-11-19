@@ -16,12 +16,12 @@
   <meta name="author" content="Sophon">
   <meta name="keywords" content="">
   
-    <meta name="description" content="题意简述给你一个字符串 $s$ 和一个整数 $k$ ，找出 $s$ 中的最长子串，要求该子串中的每一字符出现次数都不少于 $k$ 。返回这一子串的长度。 算法分析法一 分治如果某个字符在整个字符串中的出现次数不足 $k$ ，那么任意一个包含这个字符的子串都不可能满足条件。这就好像整个字符串被这个字符分割成了几个子段，满足条件的子串只可能在子段中取。反之，如果该字符串中所有字符出现次数都不少于 $k">
+    <meta name="description" content="题意简述 给你一个字符串 sss 和一个整数 kkk ，找出 sss 中的最长子串，要求该子串中的每一字符出现次数都不少于 kkk 。返回这一子串的长度。 算法分析 法一 分治 如果某个字符在整个字符串中的出现次数不足 kkk ，那么任意一个包含这个字符的子串都不可能满足条件。这就好像整个字符串被这个字符分割成了几个子段，满足条件的子串只可能在子段中取。反之，如果该字符串中所有字符出现次数都不少于">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode 395 至少有 K 个重复字符的最长子串">
 <meta property="og:url" content="http://example.com/post/e8a0b9be.html">
 <meta property="og:site_name" content="Sophon">
-<meta property="og:description" content="题意简述给你一个字符串 $s$ 和一个整数 $k$ ，找出 $s$ 中的最长子串，要求该子串中的每一字符出现次数都不少于 $k$ 。返回这一子串的长度。 算法分析法一 分治如果某个字符在整个字符串中的出现次数不足 $k$ ，那么任意一个包含这个字符的子串都不可能满足条件。这就好像整个字符串被这个字符分割成了几个子段，满足条件的子串只可能在子段中取。反之，如果该字符串中所有字符出现次数都不少于 $k">
+<meta property="og:description" content="题意简述 给你一个字符串 sss 和一个整数 kkk ，找出 sss 中的最长子串，要求该子串中的每一字符出现次数都不少于 kkk 。返回这一子串的长度。 算法分析 法一 分治 如果某个字符在整个字符串中的出现次数不足 kkk ，那么任意一个包含这个字符的子串都不可能满足条件。这就好像整个字符串被这个字符分割成了几个子段，满足条件的子串只可能在子段中取。反之，如果该字符串中所有字符出现次数都不少于">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-01T07:49:19.119Z">
 <meta property="article:modified_time" content="2022-02-01T10:47:11.351Z">
@@ -187,8 +187,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-02-01 15:49" pubdate>
-        2022年2月1日 下午
+      <time datetime="2022-02-01 18:49" pubdate>
+        2022年2月1日 晚上
       </time>
     </span>
   
@@ -239,12 +239,18 @@
             <h1 style="display: none">leetcode 395 至少有 K 个重复字符的最长子串</h1>
             
             <div class="markdown-body">
-              <h1 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h1><p>给你一个字符串 $s$ 和一个整数 $k$ ，找出 $s$ 中的最长子串，要求该子串中的每一字符出现次数都不少于 $k$ 。返回这一子串的长度。</p>
-<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><h2 id="法一-分治"><a href="#法一-分治" class="headerlink" title="法一 分治"></a>法一 分治</h2><p>如果某个字符在整个字符串中的出现次数不足 $k$ ，那么任意一个包含这个字符的子串都不可能满足条件。这就好像整个字符串被这个字符分割成了几个子段，满足条件的子串只可能在子段中取。反之，如果该字符串中所有字符出现次数都不少于 $k$ ，那么该串即符合条件，可以去更新最值。考虑使用分支递归。</p>
-<h2 id="法二-滑动窗口"><a href="#法二-滑动窗口" class="headerlink" title="法二 滑动窗口"></a>法二 滑动窗口</h2><p>挖坑</p>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><h2 id="法一-分治-1"><a href="#法一-分治-1" class="headerlink" title="法一 分治"></a>法一 分治</h2><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">const</span> string&amp; s, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> k)</span> </span>&#123;<br>        <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">cnt</span><span class="hljs-params">(<span class="hljs-number">26</span>, <span class="hljs-number">0</span>)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = l; i &lt;= r; i++) &#123;<br>            cnt[s[i] - <span class="hljs-string">&#x27;a&#x27;</span>]++;<br>        &#125;<br><br>        <span class="hljs-keyword">char</span> split = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">26</span>; i++) &#123;<br>            <span class="hljs-keyword">if</span> (cnt[i] &gt; <span class="hljs-number">0</span> &amp;&amp; cnt[i] &lt; k) &#123;<br>                split = i + <span class="hljs-string">&#x27;a&#x27;</span>;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (split == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span> r - l + <span class="hljs-number">1</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">int</span> i = l;<br>        <span class="hljs-keyword">int</span> ret = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (i &lt;= r) &#123;<br>            <span class="hljs-keyword">while</span> (i &lt;= r &amp;&amp; s[i] == split) &#123;<br>                i++;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (i &gt; r) &#123;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>            <span class="hljs-keyword">int</span> start = i;<br>            <span class="hljs-keyword">while</span> (i &lt;= r &amp;&amp; s[i] != split) &#123;<br>                i++;<br>            &#125;<br><br>            <span class="hljs-keyword">int</span> length = <span class="hljs-built_in">dfs</span>(s, start, i - <span class="hljs-number">1</span>, k);<br>            ret = <span class="hljs-built_in">max</span>(ret, length);<br>        &#125;<br>        <span class="hljs-keyword">return</span> ret;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">longestSubstring</span><span class="hljs-params">(string s, <span class="hljs-keyword">int</span> k)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> n = s.<span class="hljs-built_in">length</span>();<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">dfs</span>(s, <span class="hljs-number">0</span>, n - <span class="hljs-number">1</span>, k);<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-
-<h2 id="法二-滑动窗口-1"><a href="#法二-滑动窗口-1" class="headerlink" title="法二 滑动窗口"></a>法二 滑动窗口</h2><p>挖坑</p>
+              <h1>题意简述</h1>
+<p>给你一个字符串 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span> 和一个整数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> ，找出 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span> 中的最长子串，要求该子串中的每一字符出现次数都不少于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 。返回这一子串的长度。</p>
+<h1>算法分析</h1>
+<h2 id="法一-分治">法一 分治</h2>
+<p>如果某个字符在整个字符串中的出现次数不足 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> ，那么任意一个包含这个字符的子串都不可能满足条件。这就好像整个字符串被这个字符分割成了几个子段，满足条件的子串只可能在子段中取。反之，如果该字符串中所有字符出现次数都不少于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> ，那么该串即符合条件，可以去更新最值。考虑使用分支递归。</p>
+<h2 id="法二-滑动窗口">法二 滑动窗口</h2>
+<p>挖坑</p>
+<h1>代码实现</h1>
+<h2 id="法一-分治-2">法一 分治</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">const</span> string&amp; s, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> k)</span> </span>&#123;<br>        <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">cnt</span><span class="hljs-params">(<span class="hljs-number">26</span>, <span class="hljs-number">0</span>)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = l; i &lt;= r; i++) &#123;<br>            cnt[s[i] - <span class="hljs-string">&#x27;a&#x27;</span>]++;<br>        &#125;<br><br>        <span class="hljs-keyword">char</span> split = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">26</span>; i++) &#123;<br>            <span class="hljs-keyword">if</span> (cnt[i] &gt; <span class="hljs-number">0</span> &amp;&amp; cnt[i] &lt; k) &#123;<br>                split = i + <span class="hljs-string">&#x27;a&#x27;</span>;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (split == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span> r - l + <span class="hljs-number">1</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">int</span> i = l;<br>        <span class="hljs-keyword">int</span> ret = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (i &lt;= r) &#123;<br>            <span class="hljs-keyword">while</span> (i &lt;= r &amp;&amp; s[i] == split) &#123;<br>                i++;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (i &gt; r) &#123;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>            <span class="hljs-keyword">int</span> start = i;<br>            <span class="hljs-keyword">while</span> (i &lt;= r &amp;&amp; s[i] != split) &#123;<br>                i++;<br>            &#125;<br><br>            <span class="hljs-keyword">int</span> length = <span class="hljs-built_in">dfs</span>(s, start, i - <span class="hljs-number">1</span>, k);<br>            ret = <span class="hljs-built_in">max</span>(ret, length);<br>        &#125;<br>        <span class="hljs-keyword">return</span> ret;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">longestSubstring</span><span class="hljs-params">(string s, <span class="hljs-keyword">int</span> k)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> n = s.<span class="hljs-built_in">length</span>();<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">dfs</span>(s, <span class="hljs-number">0</span>, n - <span class="hljs-number">1</span>, k);<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h2 id="法二-滑动窗口-2">法二 滑动窗口</h2>
+<p>挖坑</p>
 
             </div>
             <hr>
@@ -441,43 +447,8 @@
   
 
   
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        loader: {
-          load: ['ui/lazy']
-        },
-        options: {
-          renderActions: {
-            findScript: [10, doc => {
-              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                const display = !!node.type.match(/; *mode=display/);
-                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                const text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = { node: text, delim: '', n: 0 };
-                math.end = { node: text, delim: '', n: 0 };
-                doc.math.push(math);
-              });
-            }, '', false],
-            insertedScript: [200, () => {
-              document.querySelectorAll('mjx-container').forEach(node => {
-                let target = node.parentNode;
-                if (target.nodeName.toLowerCase() === 'li') {
-                  target.parentNode.classList.add('has-jax');
-                }
-              });
-            }, '', false]
-          }
-        }
-      };
-    </script>
-
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
-
+    <!-- KaTeX -->
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css" />
   
 
 

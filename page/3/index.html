@@ -199,7 +199,7 @@
       <p class="index-excerpt">
         <a href="/post/91615ddf.html" target="_self">
           
-          题意简述给出一些角色，每个角色有$ATK$和$DEF$属性，若存在另一个角色，它的两个属性值都严格大于自己的两个属性值，称自己为弱角色。求出这些角色中弱角色个数。 算法分析如果属性仅有一个，直接排序或记录最大值，比较就可以得到答案。考虑对其中一个属性$ATK$排序，按降序遍历每一个角色，并记录已遍历过的角色的$DEF$最大值$maxD$，如果当前角色的$DEF$值小于$maxD$，答案加一。同时还
+          题意简述 给出一些角色，每个角色有ATKATKATK和DEFDEFDEF属性，若存在另一个角色，它的两个属性值都严格大于自己的两个属性值，称自己为弱角色。求出这些角色中弱角色个数。 算法分析 如果属性仅有一个，直接排序或记录最大值，比较就可以得到答案。考虑对其中一个属性ATKATKATK排序，按降序遍历每一个角色，并记录已遍历过的角色的DEFDEFDEF最大值maxDmaxDmaxD，如果当前角色
         </a>
       </p>
 
@@ -207,7 +207,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-28 13:56" pubdate>
+            <time datetime="2022-01-28 16:56" pubdate>
               2022-01-28
             </time>
           </div>
@@ -246,7 +246,7 @@
       <p class="index-excerpt">
         <a href="/post/45b83178.html" target="_self">
           
-          T1 元素计数for for，水题莫忘暴力 T4 基于陈述统计最多好人数题意简述好人说真话，坏人不确定。给出$statements[i][j]$表示$i$号人对$j$号人的好坏评价，$0$坏$1$好。求好人最多有几个。 算法分析由于总人数$n&lt;&#x3D;15$，直接二进制枚举所有人的好坏情况，判断有无冲突即可。 代码实现1234567891011121314151617181920212223242
+          T1 元素计数 for for，水题莫忘暴力 T4 基于陈述统计最多好人数 题意简述 好人说真话，坏人不确定。给出statements[i][j]statements[i][j]statements[i][j]表示iii号人对jjj号人的好坏评价，000坏111好。求好人最多有几个。 算法分析 由于总人数n&lt;&#x3D;15n&lt;&#x3D;15n&lt;&#x3D;15，直接二进制枚举所有人的好坏情况，判断有无冲突
         </a>
       </p>
 
@@ -254,7 +254,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-27 19:57" pubdate>
+            <time datetime="2022-01-27 22:57" pubdate>
               2022-01-27
             </time>
           </div>
@@ -297,7 +297,7 @@
       <p class="index-excerpt">
         <a href="/post/2f692029.html" target="_self">
           
-          题意简述定义因子只有$2$或$3$或$5$的数为丑数，求第$n$个丑数。 算法分析法一 最小堆每次取出堆顶$x$，插入$2x,3x,5x$。set或priority_queue。复杂度$nlogn$。 法二 动态规划每个丑数，乘以$2$乘以$3$乘以$5$都能得到$3$个更大的丑数。反过来看每个丑数，都是由之前的某个丑数乘以$2$乘以$3$乘以$5$得到。为了得到$f[i]$是由哪一个推得，考虑维
+          题意简述 定义因子只有222或333或555的数为丑数，求第nnn个丑数。 算法分析 法一 最小堆 每次取出堆顶xxx，插入2x,3x,5x2x,3x,5x2x,3x,5x。set或priority_queue。复杂度nlognnlognnlogn。 法二 动态规划 每个丑数，乘以222乘以333乘以555都能得到333个更大的丑数。反过来看每个丑数，都是由之前的某个丑数乘以222乘以333乘以5
         </a>
       </p>
 
@@ -305,7 +305,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-27 15:06" pubdate>
+            <time datetime="2022-01-27 18:06" pubdate>
               2022-01-27
             </time>
           </div>
@@ -344,7 +344,7 @@
       <p class="index-excerpt">
         <a href="/post/be4ef6ff.html" target="_self">
           
-          题意简述给定$n$个数，其中有某个数的出现次数大于$\lfloor \frac{n}{2} \rfloor$，求这个数。 算法分析把这些数分成两个阵营，一个由每一个众数（即所求）组成，另一个由其他所有非众数组成。由题意知前一个阵营人数大于后一个。考虑维护一个候选众数$candidate$以及它出现的次数$count$，初始候选众数任意，出现次数为$0$。接下来扫描这$n$个数，如果被扫到的数$x$
+          题意简述 给定nnn个数，其中有某个数的出现次数大于⌊n2⌋\lfloor \frac{n}{2} \rfloor⌊2n​⌋，求这个数。 算法分析 把这些数分成两个阵营，一个由每一个众数（即所求）组成，另一个由其他所有非众数组成。由题意知前一个阵营人数大于后一个。考虑维护一个候选众数candidatecandidatecandidate以及它出现的次数countcountcount，初始候选众数任
         </a>
       </p>
 
@@ -352,8 +352,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-26 21:57" pubdate>
-              2022-01-26
+            <time datetime="2022-01-27 00:57" pubdate>
+              2022-01-27
             </time>
           </div>
         
@@ -391,7 +391,7 @@
       <p class="index-excerpt">
         <a href="/post/59d544d.html" target="_self">
           
-          为什么说操作数是神？1while (true) cout &lt;&lt; &quot;czsnb&quot;;  $$\large{Czs NB \cdot czsnb}$$
+          为什么说操作数是神？ 1while (true) cout &lt;&lt; &quot;czsnb&quot;; CzsNB⋅czsnb\large{Czs NB \cdot czsnb} CzsNB⋅czsnb
         </a>
       </p>
 
@@ -399,7 +399,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-25 15:28" pubdate>
+            <time datetime="2022-01-25 18:28" pubdate>
               2022-01-25
             </time>
           </div>

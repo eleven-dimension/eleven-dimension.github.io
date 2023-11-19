@@ -16,12 +16,12 @@
   <meta name="author" content="Sophon">
   <meta name="keywords" content="">
   
-    <meta name="description" content="题意简述给出一些角色，每个角色有$ATK$和$DEF$属性，若存在另一个角色，它的两个属性值都严格大于自己的两个属性值，称自己为弱角色。求出这些角色中弱角色个数。 算法分析如果属性仅有一个，直接排序或记录最大值，比较就可以得到答案。考虑对其中一个属性$ATK$排序，按降序遍历每一个角色，并记录已遍历过的角色的$DEF$最大值$maxD$，如果当前角色的$DEF$值小于$maxD$，答案加一。同时还">
+    <meta name="description" content="题意简述 给出一些角色，每个角色有ATKATKATK和DEFDEFDEF属性，若存在另一个角色，它的两个属性值都严格大于自己的两个属性值，称自己为弱角色。求出这些角色中弱角色个数。 算法分析 如果属性仅有一个，直接排序或记录最大值，比较就可以得到答案。考虑对其中一个属性ATKATKATK排序，按降序遍历每一个角色，并记录已遍历过的角色的DEFDEFDEF最大值maxDmaxDmaxD，如果当前角色">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode 1996 游戏中弱角色的数量">
 <meta property="og:url" content="http://example.com/post/91615ddf.html">
 <meta property="og:site_name" content="Sophon">
-<meta property="og:description" content="题意简述给出一些角色，每个角色有$ATK$和$DEF$属性，若存在另一个角色，它的两个属性值都严格大于自己的两个属性值，称自己为弱角色。求出这些角色中弱角色个数。 算法分析如果属性仅有一个，直接排序或记录最大值，比较就可以得到答案。考虑对其中一个属性$ATK$排序，按降序遍历每一个角色，并记录已遍历过的角色的$DEF$最大值$maxD$，如果当前角色的$DEF$值小于$maxD$，答案加一。同时还">
+<meta property="og:description" content="题意简述 给出一些角色，每个角色有ATKATKATK和DEFDEFDEF属性，若存在另一个角色，它的两个属性值都严格大于自己的两个属性值，称自己为弱角色。求出这些角色中弱角色个数。 算法分析 如果属性仅有一个，直接排序或记录最大值，比较就可以得到答案。考虑对其中一个属性ATKATKATK排序，按降序遍历每一个角色，并记录已遍历过的角色的DEFDEFDEF最大值maxDmaxDmaxD，如果当前角色">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-28T05:56:49.354Z">
 <meta property="article:modified_time" content="2022-01-28T06:27:38.491Z">
@@ -186,7 +186,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-01-28 13:56" pubdate>
+      <time datetime="2022-01-28 16:56" pubdate>
         2022年1月28日 下午
       </time>
     </span>
@@ -197,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      747 字
+      809 字
     </span>
   
 
@@ -238,10 +238,14 @@
             <h1 style="display: none">leetcode 1996 游戏中弱角色的数量</h1>
             
             <div class="markdown-body">
-              <h1 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h1><p>给出一些角色，每个角色有$ATK$和$DEF$属性，若存在另一个角色，它的两个属性值都严格大于自己的两个属性值，称自己为<strong>弱角色</strong>。求出这些角色中<strong>弱角色</strong>个数。</p>
-<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>如果属性仅有一个，直接排序或记录最大值，比较就可以得到答案。考虑对其中一个属性$ATK$排序，按降序遍历每一个角色，并记录已遍历过的角色的$DEF$最大值$maxD$，如果当前角色的$DEF$值小于$maxD$，答案加一。同时还需考虑$ATK$属性相同的那些角色，如果没有顺序地遍历这些角色，可能会出现$DEF$较小的角色被误认为弱角色的情况。这种情况当$maxD$来自于前面某一个$ATK$与当前角色$ATK$相同的角色时出现。所以对于$ATK$相同的角色，应该按照$DEF$升序排序。</p>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">numberOfWeakCharacters</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; properties)</span> </span>&#123;<br>        <span class="hljs-built_in">sort</span>(properties.<span class="hljs-built_in">begin</span>(), properties.<span class="hljs-built_in">end</span>(), [](vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; a, vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; b) &#123;<br>            <span class="hljs-keyword">return</span> a[<span class="hljs-number">0</span>] == b[<span class="hljs-number">0</span>] ? a[<span class="hljs-number">1</span>] &lt; b[<span class="hljs-number">1</span>] : a[<span class="hljs-number">0</span>] &gt; b[<span class="hljs-number">0</span>];<br>        &#125;);<br>        <span class="hljs-keyword">int</span> maxD = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> player : properties) &#123;<br>            <span class="hljs-keyword">if</span> (player[<span class="hljs-number">1</span>] &lt; maxD) ans++;<br>            <span class="hljs-keyword">else</span> maxD = player[<span class="hljs-number">1</span>];<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<h1 id="另解"><a href="#另解" class="headerlink" title="另解"></a>另解</h1><p>二维偏序，线段树，挖坑</p>
+              <h1>题意简述</h1>
+<p>给出一些角色，每个角色有<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>T</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">ATK</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>E</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">DEF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord mathnormal" style="margin-right:0.13889em;">EF</span></span></span></span>属性，若存在另一个角色，它的两个属性值都严格大于自己的两个属性值，称自己为<strong>弱角色</strong>。求出这些角色中<strong>弱角色</strong>个数。</p>
+<h1>算法分析</h1>
+<p>如果属性仅有一个，直接排序或记录最大值，比较就可以得到答案。考虑对其中一个属性<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>T</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">ATK</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span>排序，按降序遍历每一个角色，并记录已遍历过的角色的<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>E</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">DEF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord mathnormal" style="margin-right:0.13889em;">EF</span></span></span></span>最大值<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>a</mi><mi>x</mi><mi>D</mi></mrow><annotation encoding="application/x-tex">maxD</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">ma</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span>，如果当前角色的<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>E</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">DEF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord mathnormal" style="margin-right:0.13889em;">EF</span></span></span></span>值小于<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>a</mi><mi>x</mi><mi>D</mi></mrow><annotation encoding="application/x-tex">maxD</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">ma</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span>，答案加一。同时还需考虑<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>T</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">ATK</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span>属性相同的那些角色，如果没有顺序地遍历这些角色，可能会出现<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>E</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">DEF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord mathnormal" style="margin-right:0.13889em;">EF</span></span></span></span>较小的角色被误认为弱角色的情况。这种情况当<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>a</mi><mi>x</mi><mi>D</mi></mrow><annotation encoding="application/x-tex">maxD</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">ma</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span>来自于前面某一个<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>T</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">ATK</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span>与当前角色<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>T</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">ATK</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span>相同的角色时出现。所以对于<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>T</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">ATK</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span>相同的角色，应该按照<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>E</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">DEF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord mathnormal" style="margin-right:0.13889em;">EF</span></span></span></span>升序排序。</p>
+<h1>代码实现</h1>
+<figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">numberOfWeakCharacters</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; properties)</span> </span>&#123;<br>        <span class="hljs-built_in">sort</span>(properties.<span class="hljs-built_in">begin</span>(), properties.<span class="hljs-built_in">end</span>(), [](vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; a, vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; b) &#123;<br>            <span class="hljs-keyword">return</span> a[<span class="hljs-number">0</span>] == b[<span class="hljs-number">0</span>] ? a[<span class="hljs-number">1</span>] &lt; b[<span class="hljs-number">1</span>] : a[<span class="hljs-number">0</span>] &gt; b[<span class="hljs-number">0</span>];<br>        &#125;);<br>        <span class="hljs-keyword">int</span> maxD = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> player : properties) &#123;<br>            <span class="hljs-keyword">if</span> (player[<span class="hljs-number">1</span>] &lt; maxD) ans++;<br>            <span class="hljs-keyword">else</span> maxD = player[<span class="hljs-number">1</span>];<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h1>另解</h1>
+<p>二维偏序，线段树，挖坑</p>
 
             </div>
             <hr>
@@ -436,43 +440,8 @@
   
 
   
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        loader: {
-          load: ['ui/lazy']
-        },
-        options: {
-          renderActions: {
-            findScript: [10, doc => {
-              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                const display = !!node.type.match(/; *mode=display/);
-                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                const text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = { node: text, delim: '', n: 0 };
-                math.end = { node: text, delim: '', n: 0 };
-                doc.math.push(math);
-              });
-            }, '', false],
-            insertedScript: [200, () => {
-              document.querySelectorAll('mjx-container').forEach(node => {
-                let target = node.parentNode;
-                if (target.nodeName.toLowerCase() === 'li') {
-                  target.parentNode.classList.add('has-jax');
-                }
-              });
-            }, '', false]
-          }
-        }
-      };
-    </script>
-
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
-
+    <!-- KaTeX -->
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css" />
   
 
 

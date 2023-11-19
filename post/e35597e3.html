@@ -16,12 +16,12 @@
   <meta name="author" content="Sophon">
   <meta name="keywords" content="">
   
-    <meta name="description" content="由于 $pair$ 没有自带哈希函数，需要手写并传入。无序容器底层为哈希表，需要哈希函数。 1234567auto hash_p &#x3D; [](const pair&lt;int, int&gt; &amp;p) -&gt; size_t &amp;#123;    static hash&lt;long long&gt; hash_ll;    return hash_ll(        p.first">
+    <meta name="description" content="由于 pairpairpair 没有自带哈希函数，需要手写并传入。无序容器底层为哈希表，需要哈希函数。 1234567auto hash_p &#x3D; [](const pair&lt;int, int&gt; &amp;p) -&gt; size_t &amp;#123;    static hash&lt;long long&gt; hash_ll;    return hash_ll(        p.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++11 pair作为无序容器的key">
 <meta property="og:url" content="http://example.com/post/e35597e3.html">
 <meta property="og:site_name" content="Sophon">
-<meta property="og:description" content="由于 $pair$ 没有自带哈希函数，需要手写并传入。无序容器底层为哈希表，需要哈希函数。 1234567auto hash_p &#x3D; [](const pair&lt;int, int&gt; &amp;p) -&gt; size_t &amp;#123;    static hash&lt;long long&gt; hash_ll;    return hash_ll(        p.first">
+<meta property="og:description" content="由于 pairpairpair 没有自带哈希函数，需要手写并传入。无序容器底层为哈希表，需要哈希函数。 1234567auto hash_p &#x3D; [](const pair&lt;int, int&gt; &amp;p) -&gt; size_t &amp;#123;    static hash&lt;long long&gt; hash_ll;    return hash_ll(        p.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-08T03:05:17.469Z">
 <meta property="article:modified_time" content="2022-02-08T03:11:44.325Z">
@@ -187,8 +187,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-02-08 11:05" pubdate>
-        2022年2月8日 上午
+      <time datetime="2022-02-08 14:05" pubdate>
+        2022年2月8日 下午
       </time>
     </span>
   
@@ -198,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      301 字
+      307 字
     </span>
   
 
@@ -239,7 +239,7 @@
             <h1 style="display: none">C++11 pair作为无序容器的key</h1>
             
             <div class="markdown-body">
-              <p>由于 $pair$ 没有自带哈希函数，需要手写并传入。无序容器底层为哈希表，需要哈希函数。</p>
+              <p>由于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mi>a</mi><mi>i</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">pair</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal">ai</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> 没有自带哈希函数，需要手写并传入。无序容器底层为哈希表，需要哈希函数。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> hash_p = [](<span class="hljs-keyword">const</span> pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; &amp;p) -&gt; <span class="hljs-keyword">size_t</span> &#123;<br>    <span class="hljs-keyword">static</span> hash&lt;<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>&gt; hash_ll;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">hash_ll</span>(<br>        p.first + (<span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>&gt;(p.second) &lt;&lt; <span class="hljs-number">32</span>)<br>    );<br>&#125;;<br>unordered_set&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;, <span class="hljs-keyword">decltype</span>(hash_p)&gt; <span class="hljs-built_in">lamp_xy</span>(<span class="hljs-number">0</span>, hash_p);<br></code></pre></td></tr></table></figure>
             </div>
             <hr>
@@ -436,43 +436,8 @@
   
 
   
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        loader: {
-          load: ['ui/lazy']
-        },
-        options: {
-          renderActions: {
-            findScript: [10, doc => {
-              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                const display = !!node.type.match(/; *mode=display/);
-                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                const text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = { node: text, delim: '', n: 0 };
-                math.end = { node: text, delim: '', n: 0 };
-                doc.math.push(math);
-              });
-            }, '', false],
-            insertedScript: [200, () => {
-              document.querySelectorAll('mjx-container').forEach(node => {
-                let target = node.parentNode;
-                if (target.nodeName.toLowerCase() === 'li') {
-                  target.parentNode.classList.add('has-jax');
-                }
-              });
-            }, '', false]
-          }
-        }
-      };
-    </script>
-
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
-
+    <!-- KaTeX -->
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css" />
   
 
 

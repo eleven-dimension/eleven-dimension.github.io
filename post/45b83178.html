@@ -16,12 +16,12 @@
   <meta name="author" content="Sophon">
   <meta name="keywords" content="">
   
-    <meta name="description" content="T1 元素计数for for，水题莫忘暴力 T4 基于陈述统计最多好人数题意简述好人说真话，坏人不确定。给出$statements[i][j]$表示$i$号人对$j$号人的好坏评价，$0$坏$1$好。求好人最多有几个。 算法分析由于总人数$n&lt;&#x3D;15$，直接二进制枚举所有人的好坏情况，判断有无冲突即可。 代码实现1234567891011121314151617181920212223242">
+    <meta name="description" content="T1 元素计数 for for，水题莫忘暴力 T4 基于陈述统计最多好人数 题意简述 好人说真话，坏人不确定。给出statements[i][j]statements[i][j]statements[i][j]表示iii号人对jjj号人的好坏评价，000坏111好。求好人最多有几个。 算法分析 由于总人数n&lt;&#x3D;15n&lt;&#x3D;15n&lt;&#x3D;15，直接二进制枚举所有人的好坏情况，判断有无冲突">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode 第277场周赛">
 <meta property="og:url" content="http://example.com/post/45b83178.html">
 <meta property="og:site_name" content="Sophon">
-<meta property="og:description" content="T1 元素计数for for，水题莫忘暴力 T4 基于陈述统计最多好人数题意简述好人说真话，坏人不确定。给出$statements[i][j]$表示$i$号人对$j$号人的好坏评价，$0$坏$1$好。求好人最多有几个。 算法分析由于总人数$n&lt;&#x3D;15$，直接二进制枚举所有人的好坏情况，判断有无冲突即可。 代码实现1234567891011121314151617181920212223242">
+<meta property="og:description" content="T1 元素计数 for for，水题莫忘暴力 T4 基于陈述统计最多好人数 题意简述 好人说真话，坏人不确定。给出statements[i][j]statements[i][j]statements[i][j]表示iii号人对jjj号人的好坏评价，000坏111好。求好人最多有几个。 算法分析 由于总人数n&lt;&#x3D;15n&lt;&#x3D;15n&lt;&#x3D;15，直接二进制枚举所有人的好坏情况，判断有无冲突">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-27T11:57:44.063Z">
 <meta property="article:modified_time" content="2022-02-01T11:30:51.881Z">
@@ -188,7 +188,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-01-27 19:57" pubdate>
+      <time datetime="2022-01-27 22:57" pubdate>
         2022年1月27日 晚上
       </time>
     </span>
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      858 字
+      902 字
     </span>
   
 
@@ -240,10 +240,15 @@
             <h1 style="display: none">leetcode 第277场周赛</h1>
             
             <div class="markdown-body">
-              <h1 id="T1-元素计数"><a href="#T1-元素计数" class="headerlink" title="T1 元素计数"></a>T1 元素计数</h1><p>for for，水题莫忘暴力</p>
-<h1 id="T4-基于陈述统计最多好人数"><a href="#T4-基于陈述统计最多好人数" class="headerlink" title="T4 基于陈述统计最多好人数"></a>T4 基于陈述统计最多好人数</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>好人说真话，坏人不确定。给出$statements[i][j]$表示$i$号人对$j$号人的好坏评价，$0$坏$1$好。求好人最多有几个。</p>
-<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p>由于总人数$n&lt;=15$，直接二进制枚举所有人的好坏情况，判断有无冲突即可。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maximumGood</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; statements)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> n = statements.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> mask = <span class="hljs-number">1</span>; mask &lt; (<span class="hljs-number">1</span> &lt;&lt; n); ++mask) &#123;<br>            <span class="hljs-keyword">bool</span> check = [&amp;]() &#123;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) &#123;<br>                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; ++j) &#123;<br>                        <span class="hljs-keyword">if</span> (i == j) &#123;<br>                            <span class="hljs-keyword">continue</span>;<br>                        &#125;<br>                        <span class="hljs-keyword">if</span> (statements[i][j] == <span class="hljs-number">0</span>) &#123;<br>                            <span class="hljs-keyword">if</span> ((mask &amp; (<span class="hljs-number">1</span> &lt;&lt; i)) &amp;&amp; (mask &amp; (<span class="hljs-number">1</span> &lt;&lt; j))) &#123;<br>                                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>                            &#125;<br>                        &#125;<br>                        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (statements[i][j] == <span class="hljs-number">1</span>) &#123;<br>                            <span class="hljs-keyword">if</span> ((mask &amp; (<span class="hljs-number">1</span> &lt;&lt; i)) &amp;&amp; !(mask &amp; (<span class="hljs-number">1</span> &lt;&lt; j))) &#123;<br>                                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>                            &#125;<br>                        &#125;<br>                    &#125;<br>                &#125;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            &#125;();<br>            <span class="hljs-keyword">if</span> (check) &#123;<br>                ans = <span class="hljs-built_in">max</span>(ans, __builtin_popcount(mask));<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+              <h1>T1 元素计数</h1>
+<p>for for，水题莫忘暴力</p>
+<h1>T4 基于陈述统计最多好人数</h1>
+<h2 id="题意简述">题意简述</h2>
+<p>好人说真话，坏人不确定。给出<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>t</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>s</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">statements[i][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">m</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord mathnormal">s</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>表示<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span>号人对<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span>号人的好坏评价，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>好。求好人最多有几个。</p>
+<h2 id="算法分析">算法分析</h2>
+<p>由于总人数<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>&lt;</mo><mo>=</mo><mn>15</mn></mrow><annotation encoding="application/x-tex">n&lt;=15</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">15</span></span></span></span>，直接二进制枚举所有人的好坏情况，判断有无冲突即可。</p>
+<h2 id="代码实现">代码实现</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maximumGood</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; statements)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> n = statements.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> mask = <span class="hljs-number">1</span>; mask &lt; (<span class="hljs-number">1</span> &lt;&lt; n); ++mask) &#123;<br>            <span class="hljs-keyword">bool</span> check = [&amp;]() &#123;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) &#123;<br>                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; ++j) &#123;<br>                        <span class="hljs-keyword">if</span> (i == j) &#123;<br>                            <span class="hljs-keyword">continue</span>;<br>                        &#125;<br>                        <span class="hljs-keyword">if</span> (statements[i][j] == <span class="hljs-number">0</span>) &#123;<br>                            <span class="hljs-keyword">if</span> ((mask &amp; (<span class="hljs-number">1</span> &lt;&lt; i)) &amp;&amp; (mask &amp; (<span class="hljs-number">1</span> &lt;&lt; j))) &#123;<br>                                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>                            &#125;<br>                        &#125;<br>                        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (statements[i][j] == <span class="hljs-number">1</span>) &#123;<br>                            <span class="hljs-keyword">if</span> ((mask &amp; (<span class="hljs-number">1</span> &lt;&lt; i)) &amp;&amp; !(mask &amp; (<span class="hljs-number">1</span> &lt;&lt; j))) &#123;<br>                                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>                            &#125;<br>                        &#125;<br>                    &#125;<br>                &#125;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            &#125;();<br>            <span class="hljs-keyword">if</span> (check) &#123;<br>                ans = <span class="hljs-built_in">max</span>(ans, __builtin_popcount(mask));<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -441,43 +446,8 @@
   
 
   
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        loader: {
-          load: ['ui/lazy']
-        },
-        options: {
-          renderActions: {
-            findScript: [10, doc => {
-              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                const display = !!node.type.match(/; *mode=display/);
-                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                const text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = { node: text, delim: '', n: 0 };
-                math.end = { node: text, delim: '', n: 0 };
-                doc.math.push(math);
-              });
-            }, '', false],
-            insertedScript: [200, () => {
-              document.querySelectorAll('mjx-container').forEach(node => {
-                let target = node.parentNode;
-                if (target.nodeName.toLowerCase() === 'li') {
-                  target.parentNode.classList.add('has-jax');
-                }
-              });
-            }, '', false]
-          }
-        }
-      };
-    </script>
-
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
-
+    <!-- KaTeX -->
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css" />
   
 
 
