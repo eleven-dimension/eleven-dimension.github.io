@@ -191,15 +191,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/post/e35597e3.html" target="_self">
-          C++11 pair作为无序容器的key
+        <a href="/post/45b83178.html" target="_self">
+          leetcode 第277场周赛
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/post/e35597e3.html" target="_self">
+        <a href="/post/45b83178.html" target="_self">
           
-          由于 pairpairpair 没有自带哈希函数，需要手写并传入。无序容器底层为哈希表，需要哈希函数。 1234567auto hash_p &#x3D; [](const pair&lt;int, int&gt; &amp;p) -&gt; size_t &amp;#123;    static hash&lt;long long&gt; hash_ll;    return hash_ll(        p.
+          T1 元素计数 for for，水题莫忘暴力 T4 基于陈述统计最多好人数 题意简述 好人说真话，坏人不确定。给出statements[i][j]statements[i][j]statements[i][j]表示iii号人对jjj号人的好坏评价，000坏111好。求好人最多有几个。 算法分析 由于总人数n&lt;&#x3D;15n&lt;&#x3D;15n&lt;&#x3D;15，直接二进制枚举所有人的好坏情况，判断有无冲突
         </a>
       </p>
 
@@ -207,57 +207,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-06-24 10:32" pubdate>
-              2024-06-24
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/C/">C++</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/C-11/">C++11</a>
-            
-              <a href="/tags/std-hash/">std::hash</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/post/afa5c8e8.html" target="_self">
-          leetcode 101 对称二叉树
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/post/afa5c8e8.html" target="_self">
-          
-          题意 给定一个二叉树及其根节点，检查是否轴对称。 做法 如果一棵树的左右子树轴对称，那么这棵树对称。于是问题转化为左右两棵子树是否镜像，同样这个问题可以拆分成【左子树的左子树和右子树的右子树是否镜像】和【左子树的右子树和右子树的左子树是否镜像】这两个子问题，可以递归解决。注意到镜像时的子问题左右已经互换了，使用两个向左右相反方向移动的指针递归遍历两棵树即可。 代码 123456789101112c
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-06-24 10:32" pubdate>
-              2024-06-24
+            <time datetime="2022-02-01 19:30" pubdate>
+              2022-02-01
             </time>
           </div>
         
@@ -273,7 +224,11 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/DFS/">DFS</a>
+              <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算</a>
+            
+              <a href="/tags/%E5%8A%9B%E6%89%A3%E5%91%A8%E8%B5%9B/">力扣周赛</a>
+            
+              <a href="/tags/%E6%9E%9A%E4%B8%BE/">枚举</a>
             
           </div>
         
@@ -287,15 +242,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/post/59d544d.html" target="_self">
-          Czs nb!
+        <a href="/post/3abd74a8.html" target="_self">
+          leetcode 1763 最长的美好子字符串
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/post/59d544d.html" target="_self">
+        <a href="/post/3abd74a8.html" target="_self">
           
-          为什么说操作数是神？ 1while (true) cout &lt;&lt; &quot;czsnb&quot;; CzsNB⋅czsnb\large{Czs NB \cdot czsnb} CzsNB⋅czsnb
+          题意简述 当一个字符串 sss 包含的每一种字母的大写和小写形式同时出现在 sss 中，就称这个字符串 sss 是美好字符串。求出给定字符串 sss 最长的美好子字符串。 算法分析 法一 枚举 由于字符只有出现与不出现的区别，与出现次数无关，使用二进制数表示 262626 个字母的出现情况。枚举子串左端点，对于给定的某一左端点，顺序枚举右端点，只需 O(1)O(1)O(1) 时间判断当前子串小写与
         </a>
       </p>
 
@@ -303,41 +258,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-06-24 10:32" pubdate>
-              2024-06-24
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/post/91615ddf.html" target="_self">
-          leetcode 1996 游戏中弱角色的数量
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/post/91615ddf.html" target="_self">
-          
-          题意简述 给出一些角色，每个角色有ATKATKATK和DEFDEFDEF属性，若存在另一个角色，它的两个属性值都严格大于自己的两个属性值，称自己为弱角色。求出这些角色中弱角色个数。 算法分析 如果属性仅有一个，直接排序或记录最大值，比较就可以得到答案。考虑对其中一个属性ATKATKATK排序，按降序遍历每一个角色，并记录已遍历过的角色的DEFDEFDEF最大值maxDmaxDmaxD，如果当前角色
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-06-24 10:32" pubdate>
-              2024-06-24
+            <time datetime="2022-02-01 19:10" pubdate>
+              2022-02-01
             </time>
           </div>
         
@@ -353,7 +275,60 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%8E%92%E5%BA%8F/">排序</a>
+              <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算</a>
+            
+              <a href="/tags/%E5%88%86%E6%B2%BB/">分治</a>
+            
+              <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">滑动窗口</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/post/e8a0b9be.html" target="_self">
+          leetcode 395 至少有 K 个重复字符的最长子串
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/post/e8a0b9be.html" target="_self">
+          
+          题意简述 给你一个字符串 sss 和一个整数 kkk ，找出 sss 中的最长子串，要求该子串中的每一字符出现次数都不少于 kkk 。返回这一子串的长度。 算法分析 法一 分治 如果某个字符在整个字符串中的出现次数不足 kkk ，那么任意一个包含这个字符的子串都不可能满足条件。这就好像整个字符串被这个字符分割成了几个子段，满足条件的子串只可能在子段中取。反之，如果该字符串中所有字符出现次数都不少于
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-02-01 18:47" pubdate>
+              2022-02-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%88%86%E6%B2%BB/">分治</a>
+            
+              <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">滑动窗口</a>
             
           </div>
         
@@ -383,8 +358,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-06-24 10:32" pubdate>
-              2024-06-24
+            <time datetime="2022-01-28 14:40" pubdate>
+              2022-01-28
             </time>
           </div>
         
@@ -414,15 +389,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/post/b2626942.html" target="_self">
-          背包问题
+        <a href="/post/91615ddf.html" target="_self">
+          leetcode 1996 游戏中弱角色的数量
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/post/b2626942.html" target="_self">
+        <a href="/post/91615ddf.html" target="_self">
           
-          推公式的瘾犯了，才有了这篇题解 01 背包 问题简述 给你 N∈NN \in \mathbb{N}N∈N 个物品，其中第 iii 个物品具有体积 vi∈Nv_i \in \mathbb{N}vi​∈N 和价值 wi∈Nw_i \in \mathbb{N}wi​∈N，和一个容量为 V∈NV \in \mathbb{N}V∈N 的背包。现在从 NNN 个物品中选出一些物品，要求在能放入背包的前提下（即
+          题意简述 给出一些角色，每个角色有ATKATKATK和DEFDEFDEF属性，若存在另一个角色，它的两个属性值都严格大于自己的两个属性值，称自己为弱角色。求出这些角色中弱角色个数。 算法分析 如果属性仅有一个，直接排序或记录最大值，比较就可以得到答案。考虑对其中一个属性ATKATKATK排序，按降序遍历每一个角色，并记录已遍历过的角色的DEFDEFDEF最大值maxDmaxDmaxD，如果当前角色
         </a>
       </p>
 
@@ -430,41 +405,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-06-24 10:32" pubdate>
-              2024-06-24
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/post/fdf002ec.html" target="_self">
-          leetcode 1001 网格照明
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/post/fdf002ec.html" target="_self">
-          
-          题意 有一个 n×nn \times nn×n 的矩阵 (n&lt;1e9)(n &lt; 1e9)(n&lt;1e9) ，每个位置上有一个灯，给出一个灯位置序列，表示依次打开这些灯。每个灯可以照亮同一行同一列还有两条对角线上的所有格子。再给出一个位置序列，表示查询每个位置是否被照亮，同时对于每个询问位置，如果该位置加上周围八个格子里面有亮着的灯，就把这些亮灯熄灭。 做法 注意题意，灯只会照亮格子
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-06-24 10:32" pubdate>
-              2024-06-24
+            <time datetime="2022-01-28 14:27" pubdate>
+              2022-01-28
             </time>
           </div>
         
@@ -480,7 +422,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%93%88%E5%B8%8C/">哈希</a>
+              <a href="/tags/%E6%8E%92%E5%BA%8F/">排序</a>
             
           </div>
         
@@ -494,15 +436,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/post/bbacb88f.html" target="_self">
-          leetcode 1405 最长快乐字符串
+        <a href="/post/2f692029.html" target="_self">
+          leetcode 264 丑数 II
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/post/bbacb88f.html" target="_self">
+        <a href="/post/2f692029.html" target="_self">
           
-          题意 如果字符串中不含有任何 ‘aaa’，‘bbb’ 或 ‘ccc’ 这样的字符串作为子串，那么该字符串就是一个快乐字符串。 给你三个整数 aaa，bbb ，ccc，返回任意一个满足下列全部条件的字符串 sss：  sss 是一个尽可能长的快乐字符串。   sss 中最多有 aaa 个字母’a’、bbb个字母 ‘b’、ccc 个字母 ‘c’ 。   sss 中只含有 ‘a’、‘b’ 、‘c’ 三种
+          题意简述 定义因子只有222或333或555的数为丑数，求第nnn个丑数。 算法分析 法一 最小堆 每次取出堆顶xxx，插入2x,3x,5x2x,3x,5x2x,3x,5x。set或priority_queue。复杂度nlognnlognnlogn。 法二 动态规划 每个丑数，乘以222乘以333乘以555都能得到333个更大的丑数。反过来看每个丑数，都是由之前的某个丑数乘以222乘以333乘以5
         </a>
       </p>
 
@@ -510,8 +452,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-06-24 10:32" pubdate>
-              2024-06-24
+            <time datetime="2022-01-27 17:04" pubdate>
+              2022-01-27
             </time>
           </div>
         
@@ -527,11 +469,89 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%A8%A1%E6%8B%9F/">模拟</a>
-            
-              <a href="/tags/%E8%B4%AA%E5%BF%83/">贪心</a>
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
             
           </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/post/be4ef6ff.html" target="_self">
+          leetcode 169 多数元素
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/post/be4ef6ff.html" target="_self">
+          
+          题意简述 给定nnn个数，其中有某个数的出现次数大于⌊n2⌋\lfloor \frac{n}{2} \rfloor⌊2n​⌋，求这个数。 算法分析 把这些数分成两个阵营，一个由每一个众数（即所求）组成，另一个由其他所有非众数组成。由题意知前一个阵营人数大于后一个。考虑维护一个候选众数candidatecandidatecandidate以及它出现的次数countcountcount，初始候选众数任
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-27 08:52" pubdate>
+              2022-01-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Solution/">Solution</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/">摩尔投票</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/post/59d544d.html" target="_self">
+          Czs nb!
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/post/59d544d.html" target="_self">
+          
+          为什么说操作数是神？ 1while (true) cout &lt;&lt; &quot;czsnb&quot;; CzsNB⋅czsnb\large{Czs NB \cdot czsnb} CzsNB⋅czsnb
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-25 22:33" pubdate>
+              2022-01-25
+            </time>
+          </div>
+        
+        
         
       </div>
     </article>
