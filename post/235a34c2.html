@@ -16,21 +16,21 @@
   <meta name="author" content="Sophon">
   <meta name="keywords" content="">
   
-    <meta name="description" content="题意简述 给定nnn个数，其中有某个数的出现次数大于⌊n2⌋\lfloor \frac{n}{2} \rfloor⌊2n​⌋，求这个数。 算法分析 把这些数分成两个阵营，一个由每一个众数（即所求）组成，另一个由其他所有非众数组成。由题意知前一个阵营人数大于后一个。考虑维护一个候选众数candidatecandidatecandidate以及它出现的次数countcountcount，初始候选众数任">
+    <meta name="description" content="期中的时候，老笔记本硬盘满了，之前暑假懒得弄，挨到期中彻底没办法了。为此还买了移动硬盘，hdd，但似乎被磕坏了，损失惨重 买了硬盘，打算把D盘移到新硬盘，再让C盘吃掉老硬盘。C盘和D盘夹着efi分区，以为没用，删了，蓝屏进不去。急着用笔记本，学校机房电脑u盘插不了，做不了pe，只能买一个新的。省钱loq，4050加1T的硬盘，插槽一个没有。放假回国，用新笔记本装了pe，命令行补了efi。 于是多出">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode 169 多数元素">
-<meta property="og:url" content="http://example.com/post/be4ef6ff.html">
+<meta property="og:title" content="记一次从国外访问国内家中的笔记本配置及linux折腾">
+<meta property="og:url" content="http://example.com/post/235a34c2.html">
 <meta property="og:site_name" content="Sophon">
-<meta property="og:description" content="题意简述 给定nnn个数，其中有某个数的出现次数大于⌊n2⌋\lfloor \frac{n}{2} \rfloor⌊2n​⌋，求这个数。 算法分析 把这些数分成两个阵营，一个由每一个众数（即所求）组成，另一个由其他所有非众数组成。由题意知前一个阵营人数大于后一个。考虑维护一个候选众数candidatecandidatecandidate以及它出现的次数countcountcount，初始候选众数任">
+<meta property="og:description" content="期中的时候，老笔记本硬盘满了，之前暑假懒得弄，挨到期中彻底没办法了。为此还买了移动硬盘，hdd，但似乎被磕坏了，损失惨重 买了硬盘，打算把D盘移到新硬盘，再让C盘吃掉老硬盘。C盘和D盘夹着efi分区，以为没用，删了，蓝屏进不去。急着用笔记本，学校机房电脑u盘插不了，做不了pe，只能买一个新的。省钱loq，4050加1T的硬盘，插槽一个没有。放假回国，用新笔记本装了pe，命令行补了efi。 于是多出">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-06-24T02:32:54.480Z">
-<meta property="article:modified_time" content="2022-01-27T00:52:18.000Z">
+<meta property="article:published_time" content="2024-06-24T11:47:42.826Z">
+<meta property="article:modified_time" content="2024-06-24T12:39:06.837Z">
 <meta property="article:author" content="Sophon">
-<meta property="article:tag" content="摩尔投票">
+<meta property="article:tag" content="科学上网">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>leetcode 169 多数元素 - Sophon</title>
+  <title>记一次从国外访问国内家中的笔记本配置及linux折腾 - Sophon</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -176,7 +176,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="leetcode 169 多数元素">
+            <span class="h2" id="subtitle" title="记一次从国外访问国内家中的笔记本配置及linux折腾">
               
             </span>
 
@@ -186,8 +186,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2024-06-24 10:32" pubdate>
-        2024年6月24日 上午
+      <time datetime="2024-06-24 19:47" pubdate>
+        2024年6月24日 晚上
       </time>
     </span>
   
@@ -197,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      693 字
+      1.1k 字
     </span>
   
 
@@ -206,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      10 分钟
     </span>
   
 
@@ -235,17 +235,22 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">leetcode 169 多数元素</h1>
+            <h1 style="display: none">记一次从国外访问国内家中的笔记本配置及linux折腾</h1>
             
             <div class="markdown-body">
-              <h1>题意简述</h1>
-<p>给定<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>个数，其中有某个数的出现次数<strong>大于</strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">⌊</mo><mfrac><mi>n</mi><mn>2</mn></mfrac><mo stretchy="false">⌋</mo></mrow><annotation encoding="application/x-tex">\lfloor \frac{n}{2} \rfloor</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.095em;vertical-align:-0.345em;"></span><span class="mopen">⌊</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6954em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌋</span></span></span></span>，求这个数。</p>
-<h1>算法分析</h1>
-<p>把这些数分成两个阵营，一个由每一个众数（即所求）组成，另一个由其他所有非众数组成。由题意知前一个阵营人数大于后一个。考虑维护一个候选众数<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>i</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">candidate</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">c</span><span class="mord mathnormal">an</span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span></span></span></span>以及它出现的次数<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">count</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">co</span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span></span></span></span>，初始候选众数任意，出现次数为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>。接下来扫描这<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>个数，如果被扫到的数<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>是当前候选众数，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">count</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">co</span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span></span></span></span>加一，否则减一，如果<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">count</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">co</span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span></span></span></span>被减到<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>以下，将候选众数更新为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>。最终的候选众数即为所求。</p>
-<p>可以将整个过程想象为打擂台，和擂主（当前候选众数）相同的站到台上来，不同的干掉台上一个人，同归于尽。最坏的情况是非众数阵营内部没有发生同归于尽，同归于尽只发生在两个阵营之间，但即便如此众数阵营仍会因为数量多获胜。</p>
-<p>此方法即摩尔投票。</p>
-<h1>代码实现</h1>
-<figure class="highlight cpp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">majorityElement</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> candidate = <span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> num : nums) &#123;<br>            <span class="hljs-keyword">if</span> (num == candidate)<br>                ++count;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (--count &lt; <span class="hljs-number">0</span>) &#123;<br>                candidate = num;<br>                count = <span class="hljs-number">1</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> candidate;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+              <p>期中的时候，老笔记本硬盘满了，之前暑假懒得弄，挨到期中彻底没办法了。<s>为此还买了移动硬盘，hdd，但似乎被磕坏了，损失惨重</s> 买了硬盘，打算把D盘移到新硬盘，再让C盘吃掉老硬盘。C盘和D盘夹着efi分区，以为没用，删了，蓝屏进不去。急着用笔记本，学校机房电脑u盘插不了，做不了pe，只能买一个新的。省钱loq，4050加1T的硬盘，插槽一个没有。放假回国，用新笔记本装了pe，命令行补了efi。</p>
+<p>于是多出来一个笔记本，试玩linux。蓝色kubuntu好看，<s>和我arc的ch5的壁纸很配</s>，正好24.04出来没多久，选它。以为事情到此结束，结果，给老笔记本上使用强度之后，到处崩溃，从cfw到netease到firefox到vsc。排查无果，决定重装。</p>
+<p>迁移数据到新笔记本，怕重装出事，给新笔记本实现科学上网（没Google和gpt活不了的症状是这样的）。尝试cfw的linux版本、clash verge，均无果。由于之前的机场节点全是vmess协议，转而使用v2ray，配上v2raya网页客户端，<s>尝试不同版本和不同教程，经历多次报错重装</s>，成功。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><pre><code class="hljs bash">curl --output /tmp/v2ray-linux-64.zip https://ghproxy.net/https://github.com/v2fly/v2ray-core/releases/download/v5.15.3/v2ray-linux-64.zip<br>sudo unzip /tmp/v2ray-linux-64.zip -d /usr/<span class="hljs-built_in">local</span>/v2ray-core<br>sudo mkdir -p /usr/<span class="hljs-built_in">local</span>/share/v2ray/<br>sudo cp /usr/<span class="hljs-built_in">local</span>/v2ray-core/*dat /usr/<span class="hljs-built_in">local</span>/share/v2ray/<br></code></pre></td></tr></table></figure>
+<p>但分流规则写法比clash似乎繁琐很多，尚未尝试，目前全走节点。嫌带两个笔记本走太重，<s>想玩服务器的瘾犯了</s>，打算把ubuntu留在家中，查找资料准备实现全世界访问。了解了ssh，补了内网穿透，打算 ngrok + ssh，配上前置的v2ray。</p>
+<p>结果意外的简单，先尝试了同一内网下ssh直接访问。<code>ifconfig</code> 找到ip，再开ssh服务，就成功了。ngrok按官网，成功。但tcp连接的地址不固定，麻烦。<s>固定要八美刀一个月，省钱放弃</s> 尝试vscode用remote ssh连接，成功。</p>
+<p>一些命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo v2raya<br></code></pre></td></tr></table></figure>
+<p>查看ssh服务状态，启动ssh服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl status ssh<br>sudo systemctl start ssh<br></code></pre></td></tr></table></figure>
+<p>开ngrok</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ngrok tcp 22<br></code></pre></td></tr></table></figure>
+
             </div>
             <hr>
             <div>
@@ -254,7 +259,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Solution/">Solution</a>
+                      <a class="hover-with-bg" href="/categories/Miscellany/">Miscellany</a>
                     
                   </div>
                 
@@ -262,7 +267,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/">摩尔投票</a>
+                      <a class="hover-with-bg" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a>
                     
                   </div>
                 
@@ -279,18 +284,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/post/f1103434.html">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">八卦基础</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/post/4db2f006.html">
-                        <span class="hidden-mobile">leetcode 260 只出现一次的数字 III</span>
+                      <a href="/post/5e3ceda0.html">
+                        <span class="hidden-mobile">记一次帮儿子装anaconda</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -435,13 +434,6 @@
 
 
 
-
-  
-
-  
-    <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css" />
-  
 
 
 
